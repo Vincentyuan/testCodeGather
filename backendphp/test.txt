@@ -1,0 +1,18 @@
+GETHost: localhost:8888
+Connection: keep-alive
+Accept: application/json, text/plain, */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE0NjI3MzY3MzAsImp0aSI6IkI0TVI5TUFsM0NrZUx3a1ZTNTBBTHhmUUowbVJKWHFkeEExaDdwVXgxQkk9IiwiaXNzIjoiQUZTRkEiLCJuYmYiOjE0NjI3MzY3NDAsImV4cCI6MTQ2Mjc0MDQwMCwiZGF0YSI6eyJ1c2VySWQiOiJTQURGIiwidXNlck5hbWUiOiJTQURGUyJ9fQ.9hig69HQ9dWq9o7Tp6X2sF7-tZOf55CpcLiuuE5r5eoLgxRhc6Dma4rCM94BVY4A93M7yEplZHjsev5-WzqsQg
+Referer: http://localhost:8888/footovision/test/frontendAuth/app/index.html
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8,en;q=0.6,en-US;q=0.4
+
+jwt decode : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE0NjI3MzY3MzAsImp0aSI6IkI0TVI5TUFsM0NrZUx3a1ZTNTBBTHhmUUowbVJKWHFkeEExaDdwVXgxQkk9IiwiaXNzIjoiQUZTRkEiLCJuYmYiOjE0NjI3MzY3NDAsImV4cCI6MTQ2Mjc0MDQwMCwiZGF0YSI6eyJ1c2VySWQiOiJTQURGIiwidXNlck5hbWUiOiJTQURGUyJ9fQ.9hig69HQ9dWq9o7Tp6X2sF7-tZOf55CpcLiuuE5r5eoLgxRhc6Dma4rCM94BVY4A93M7yEplZHjsev5-WzqsQg
+token decode : SADFiat
+jti
+iss
+nbf
+exp
+datauserId=>SADF
+userName=>SADFS
+

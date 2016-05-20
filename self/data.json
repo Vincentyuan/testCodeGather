@@ -1,0 +1,22 @@
+{
+	"userlist":{
+		[
+				{
+					"userName":"bill",
+					"userPasswd":"123",
+					"userId":"footo1"
+				},
+				{
+					"userName":"vincent",
+					"userPasswd":"123",
+					"userId":"footo2"
+				}
+		]
+	}
+	"mapping":{
+		[
+			{"gameid":"gmi1","userId":"footo1"},
+			{"gameid":"gmi2","userId":"footo2"}
+		]
+	}
+}

@@ -1,0 +1,66 @@
+<!doctpye html>
+
+<html>
+	<head>
+		<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	</head>
+	<body>
+		<button onclick="sendAjaxRequest()" > send ajax request </button>
+	</body>
+	
+	
+	<script>
+		function ajaxCallWithCallBack(urlLink, dataObj, asynch, errTxt){
+				$.ajax({
+					type:"post",
+					url: urlLink,
+					cache: true,
+					data: JSON.stringify(dataObj),
+					dataType: "json",
+					async: asynch,
+				//	header:{"Authorization": 'Bearer ' +"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NjM1ODUxMzMsImp0aSI6InVnejk4MzlYaUp3b214UEVcLzVJYWV5THZPZ1ZrRTI4bGlUMmZUak5ZUFo0PSIsImlzcyI6Ind3dy5mb290b3Zpc2lvbi5jb20iLCJuYmYiOjE0NjM1ODUxNDMsImV4cCI6MTQ2MzU4NTIwMywiZGF0YSI6eyJ1c2VyTmFtZSI6Im5uIiwidXNlcklkIjpudWxsLCJnYW1lTGlzdCI6bnVsbH19.abdQuODg6_KFqIlXu_TNgAwmnrFF7Ee4m4U_D2bUJM4"
+				//				},
+					
+					beforeSend: function (request)
+					{
+						request.headers = request.headers || {};
+						if (localStorage.getItem("token")) {
+							//request.headers.Authorization = 'Bearer ' + $localStorage.token;
+							request.setRequestHeader("Authorization", 'Bearer ' + localStorage.getItem("ngStorage-token"));
+						}else {
+							request.setRequestHeader("Authorization", 'Bearer ' +"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NjM3MzcyMTksImp0aSI6IjhvdkErWTNWOEx4cmdoaEIrT0sxY0luK1FXWUVvTEg0U2ZTdUh1OEVNSmM9IiwiaXNzIjoid3d3LmZvb3RvdmlzaW9uLmNvbSIsIm5iZiI6MTQ2MzczNzIxOSwiZXhwIjoxNDYzNzM3ODE5LCJkYXRhIjp7InVzZXJOYW1lIjoiZGRkZCIsInVzZXJJZCI6bnVsbCwiZ2FtZUxpc3QiOm51bGx9fQ.uxKeMBeKjhoHoVQ0cC2p08eOUS8_XMl_oa07EHuJ_Pc"
+								);
+							}
+						return request;
+						
+					},
+					
+					contentType: "application/json; charset=utf-8",
+					success: function(result) {
+						//callback(result);
+						alert("get information success");
+					},
+					error : function(a, b, c, d) {
+						//errCallBack(errTxt);
+						alert("failed");
+					}
+				});
+			}
+			
+		var url="http://localhost/footovision/private/php/centralRequestHandle.php";
+		
+		var dataObj={'playerId' : 513, 'gameId' : 5, 'ht' : 0 ,
+                     'startFrame' : 0, 'endFrame' : 90000, 
+					 'playerPos' : true, 'ballDrive' : false,
+					 'nbFrames' : 10,
+					 'realUrl':"multiGameDetailsLoader"};
+		
+		function sendAjaxRequest(){
+			alert("button click");
+			ajaxCallWithCallBack(url,dataObj,true);
+		}
+		
+		
+		
+	</script>
+</html>

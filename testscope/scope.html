@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+	<header>
+		<title> test scope </title>
+		<script src="angular.js"></script>
+		
+	</header>
+	
+	<body ng-app="testScope" >
+	
+		<div ng-controller="testController">
+			<button ng-click="add()">scope1</button>
+			<h1>{{count}}</h1>
+		</div>
+		
+		<div ng-controller="testController">
+			<button ng-click="add()">scope2</button>
+			<h1>{{count}}</h1>
+		</div>
+		<button ng-click="save()">click to test </button>
+	</body>
+	<script>
+		var app=angular.module("testScope",[]);
+		app.controller("testController",function($scope,$rootScope){
+			$scope.save=function(){
+				$localStorage.data="this is saved by ngStorage cette bone?";
+				var a=0;
+				alert(localStorage);
+			}
+			
+			$rootScope.count=0;
+			
+			$scope.add=function(){
+				$rootScope.count++;
+				$scope.count=$rootScope.count;
+			}
+		
+		});
+	</script>
+
+</html>
