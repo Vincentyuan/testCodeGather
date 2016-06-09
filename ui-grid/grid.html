@@ -1,0 +1,27 @@
+<!doctpye html>
+<html>
+	<head>
+		<title>test  grid</title>
+	<head>
+	<body ng-app='testGrid' ng-controller='gridController'>
+		<div class="gridStyle" ui-grid = "gridOptions" ></div>
+	</body>
+	<link rel="stylesheet" href="ui-grid.css" type="text/css">
+	<script src="angular.js"></script>
+	
+	<script src="ui-grid.js"></script>
+	
+	<script>
+		var app = angular.module('testGrid',['ui.grid']);
+		app.controller('gridController',function($scope){
+			$scope.gridOptions = {
+				columnDefs: [
+				  {field: 'id', displayName: 'Id'},
+				  {field: 'name', displayName: 'Name'},
+				  {name: 'edit', displayName: 'Edit', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="edit(row.entity)" >Edit</button> '}
+				]    
+			  };
+			$scope.mydata=[{"firstName":"ping"},"lastName":"yuan"];
+		});
+	</script>
+</html>
