@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-$filter-production</title>
+  
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+  
+
+  
+</head>
+<body ng-app="filterExample">
+  <div ng-controller="MainCtrl">
+ <h3>{{ originalText }}</h3>
+ <h3>{{ filteredText }}</h3>
+ <h3>{{ myfilter }}</h3>
+</div>
+<script>
+var app = angular.module("filterExample",[]);
+app.filter('my', function() {
+      return function (data){return "filter" +data;};
+	  //"filter now " +data;
+    });
+	
+app.controller('MainCtrl', function($scope, $filter) {
+      $scope.originalText = 'hello';
+      $scope.filteredText = $filter('uppercase')($scope.originalText);
+      $scope.myfilter = $filter('my')($scope.originalText);
+    });
+</script>
+</body>
+</html>
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

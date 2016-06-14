@@ -1,0 +1,61 @@
+<!doctype html >
+
+<html ng-app = "subApp" ng-controller = "subController">
+	<head>
+		<title>sub window</title>
+	</head>
+	<body>
+		<h1 id ="text" > {{data.name}}</h1>
+		 <div class="row">
+     <a id="one" href="#">BUTTON1</a>
+     <a id="two" href="#">BUTTON2</a>
+     <a id="three" href="#">BUTTON3</a>
+   </div>
+   <div id="content" class="row background">
+     Changing content, this content changes depending on which button you press. Without refreshing the page.  
+   </div>
+   <script>
+     var one = document.getElementById("one");
+     var two = document.getElementById("two");
+     var three = document.getElementById("three");
+     var content = document.getElementById("content");
+
+     one.addEventListener("click", function() { 
+       content.innerHTML = "One";
+     });
+
+     two.addEventListener("click", function() {
+       content.innerHTML = "Two";
+     });
+
+     threee.addEventListener("click", function() {
+       content.innerHTML = "Three";
+     });
+    </script>
+		
+	</body>
+	<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+		
+		var app =  angular.module("subApp",[]);
+		app.controller("subController",function($scope){
+			$scope.data = window.opener.data;
+			
+			$scope.update=function(d){
+				$scope.data = d  ;
+			}
+			
+		});
+		var subScope= {};
+		$(document).ready(function() {
+            subScope = angular.element(document.getElementById("text")).scope();
+        });
+		
+		function update(data){
+			subScope.$apply(function () {
+				subScope.data = data ;
+			});
+		}
+	</script>
+</html>

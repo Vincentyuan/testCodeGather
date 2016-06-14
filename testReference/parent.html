@@ -1,0 +1,33 @@
+<!doctype html >
+
+<html ng-app="parentApp" ng-controller = "parentController">
+	<head>
+		<title>parent</title>
+	</head>
+	<body>
+		<h1 id ="text" > {{data.name}}</h1>
+		<button id ="newSubWindow" ng-click = "createSubwindow()">hello</button>
+	</body>
+	<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+		var data ={};
+		var subWindow={};
+		var angScope={};
+		data.name = "parent" ;
+		data.age = 22;
+		var app =  angular.module("parentApp",[]);
+		app.controller("parentController",function($scope){
+			$scope.data = data;
+			$scope.createSubwindow=function (){
+			
+				subWindow=window.open("subWin.html");
+			};
+		});
+		
+		$(document).ready(function() {
+            angScope = angular.element(document.getElementById("newSubWindow")).scope();
+        });
+		//var angScope = angular.element(document.querySelector('[ng-app=\"parentApp\"]')).scope();
+	</script>
+</html>
