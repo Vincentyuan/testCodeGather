@@ -16,6 +16,7 @@
  <h3>{{ originalText }}</h3>
  <h3>{{ filteredText }}</h3>
  <h3>{{ myfilter }}</h3>
+ <button ng-click="testFunction()"> click </button>
 </div>
 <script>
 var app = angular.module("filterExample",[]);
@@ -28,6 +29,10 @@ app.controller('MainCtrl', function($scope, $filter) {
       $scope.originalText = 'hello';
       $scope.filteredText = $filter('uppercase')($scope.originalText);
       $scope.myfilter = $filter('my')($scope.originalText);
+	  
+	  $scope.testFunction = function (){
+		alert($filter('my')($scope.originalText));
+	  };
     });
 </script>
 </body>
