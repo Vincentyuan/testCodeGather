@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html>
+	<head><title>test scope</title></head>
+	<body>
+	
+		<button  id = "first" ng-app = "app1" ng-controller = "controller1" ng-click="getData()"> scope1</button>
+		<button  id = "second" ng-app = "app2" ng-controller = "controller2" ng-click="secondControlller()"> scope2</button>
+		
+		
+	</body>
+	<script src="angular.js"></script>
+		<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+	var app1 = angular.module("app1",[]);
+	app1.controller("controller1",function($scope){
+	
+		$scope.getData=function(data){alert("this is the first app "+data);};
+			
+	});
+	
+	var app2 = angular.module("app2",[]);
+	app2.controller("controller2",function($scope){
+	
+		$scope.secondControlller = function($scope){
+				alert("seconde");
+				angScope1.getData("first");
+		
+		};
+		
+	});
+	angular.bootstrap(document.getElementById("second"), ['app2']);
+	
+	$(document).ready(function (){
+		angScope1 = angular.element(document.getElementById('first')).scope();
+		angScope2 = angular.element(document.getElementById('second')).scope();
+	});
+	</script>
+</html>

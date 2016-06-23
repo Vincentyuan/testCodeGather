@@ -1,0 +1,19 @@
+<!doctype html >
+
+<html>
+	<head></head>
+	<body>
+	
+	
+	</body>
+	
+	<script>
+	localStorage.setItem("file","d'accord");
+	var fso = new ActiveXObject("Scripting.FileSystemObject"); 
+		var  f=fso.opentextfile("./hello",1,true); 
+		var line = f.readline();
+		f.close();
+		alert(line);
+		
+	</script>
+</html>
