@@ -1,0 +1,246 @@
+[{
+        cellFilter: 'toDistance',
+        field: 'dist_gained_m',
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        displayName: 'Distance Gained',
+        frName: 'distance gagnée',
+        chName: '推进距离',
+        chDesc: '推进距离',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Distance Gained',
+        engDesc: 'Distance Gained',
+        frDesc: 'distance gagnée'
+    },{
+        displayName: '#Start Covering Def.',
+        field: 'start_n_covering_def',
+        filterData: 26,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: numberAggreg,
+        frName: 'départ coverture défenseur',
+        chName: '开始覆盖定义',
+        chDesc: '开始覆盖定义',
+        engName: '#Start Covering Def.',
+        engDesc: '#Start Covering Def.',
+        frDesc: 'nombre des défenseurs entre le joueur et le but adverse en début d\'action'
+    },{
+        displayName: '#End Covering Def.',
+        field: 'end_n_covering_def',
+        filterData: 27,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: numberAggreg,
+        frName: 'fin couverture défenseur',
+        chName: '结束覆盖定义',
+        chDesc: '结束覆盖定义',
+        engName: '#End Covering Def.',
+        engDesc: '#End Covering Def.',
+        frDesc: 'nombre des défenseurs entre le joueur et le but adverse en fin d\'action'
+    },{
+        field: 'closest_def_id',
+        filterData: 18,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        displayName: 'Closest Defender Id',
+        frName: 'identifiant défenseur proche',
+        chName: '最近防守球员序号',
+        chDesc: '最近防守球员序号',
+        engName: 'Closest Defender Id',
+        engDesc: 'Closest Defender Id',
+        frDesc: 'identifiant du défenseur le plus proche'
+    },{
+        displayName: 'Closest Def',
+        field: 'closest_def_id',
+        cellFilter: 'playerIdToName',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'identifiant défenseur proche',
+        chName: '最近定义',
+        chDesc: '最近定义',
+        engName: 'Closest Def',
+        engDesc: 'Closest Def',
+        frDesc: 'identifiant du défenseur le plus proche'
+    },{
+        displayName: 'Start Bottom Midfield Id',
+        field: 'start_op_bot_mid_play_id',
+        filterData: 19,
+        width: 100,
+        cellFilter: 'playerIdToName',
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'identifiant joueur milieu départ',
+        chName: '开始底线中区序列',
+        chDesc: '开始底线中区序列',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Bottom Midfield Id',
+        engDesc: 'Start Bottom Midfield Id',
+        frDesc: 'identifiant du joueur du milieu le plus bas en début d\'action'
+    },{
+        displayName: 'End Bottom Midfield Id',
+        field: 'end_op_bot_mid_play_id',
+        filterData: 20,
+        width: 100,
+        cellFilter: 'playerIdToName',
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'identifiant joueur milieu fin',
+        chName: '结束底线中区序列',
+        chDesc: '结束底线中区序列',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End Bottom Midfield Id',
+        engDesc: 'End Bottom Midfield Id',
+        frDesc: 'identifiant du joueur du milieu le plus bas en fin d\'action'
+    },{
+        displayName: 'Start Bottom Midfield',
+        field: 'start_op_bot_mid_play_id',
+        width: 100,
+        cellFilter: 'playerIdToName',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'Identifiant joueur milieu  début départ',
+        chName: '结束底线中区',
+        chDesc: '结束底线中区',
+        engName: 'Start Bottom Midfield',
+        engDesc: 'Start Bottom Midfield',
+        frDesc: 'nom du joueur du milieu le plus bas en début d\'action'
+    },{
+        displayName: 'End Bottom Midfield',
+        field: 'end_op_bot_mid_play_id',
+        width: 100,
+        cellFilter: 'playerIdToName',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'nom joueur milieu fin',
+        chName: '结束底线中区',
+        chDesc: '结束底线中区',
+        engName: 'End Bottom Midfield ',
+        engDesc: 'End Bottom Midfield ',
+        frDesc: 'nom du joueur du milieu le plus bas en fin d\'action'
+    },{
+        cellFilter: 'toDistance',
+        field: 'closest_def_dist',
+        filterData: 24,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        displayName: 'undefined',
+        frName: 'distance défenseur proche',
+        chName: '',
+        chDesc: '',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: '',
+        engDesc: '',
+        frDesc: 'distance par rapport au défenseur le plus proche'
+    },{
+        displayName: 'Start Position Type Id',
+        field: 'start_between_op_midfield_defense',
+        filterData: 12,
+        width: 100,
+        cellFilter: 'positionTypeIdToName',
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'identifiant position type départ',
+        chName: '开始位置类型序列号',
+        chDesc: '开始位置类型序列号',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Position Type Id ',
+        engDesc: 'Start Position Type Id',
+        frDesc: 'identifiant de la position interligne entre le milieu et la défense adverse en début d\'action'
+    },{
+        displayName: 'End Position Type Id',
+        field: 'end_between_op_midfield_defense',
+        filterData: 13,
+        width: 100,
+        cellFilter: 'positionTypeIdToName',
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'identifiant position fin',
+        chName: '结束位置类型序列号',
+        chDesc: '结束位置类型序列号',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End Position Type Id ',
+        engDesc: 'End Position Type Id',
+        frDesc: 'identifiant de la position interligne entre le milieu et la défense adverse en fin d\'action'
+    },{
+        displayName: 'Start Position Type',
+        field: 'start_between_op_midfield_defense',
+        width: 100,
+        cellFilter: 'positionTypeIdToName',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'départ type position',
+        chName: '开始位置类型',
+        chDesc: '开始位置类型',
+        engName: 'Start Position Type  ',
+        engDesc: 'Start Position Type ',
+        frDesc: 'position interligne entre le milieu et la défense adverse en début d\'action'
+    }, {
+        displayName: 'End Position Type',
+        field: 'end_between_op_midfield_defense',
+        width: 100,
+        cellFilter: 'positionTypeIdToName',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'type position fin',
+        chName: '结束位置类型',
+        chDesc: '结束位置类型',
+        engName: 'End Position Type ',
+        engDesc: 'End Position Type',
+        frDesc: 'position interligne entre le milieu et la défense adverse en fin d\'action'
+    }]

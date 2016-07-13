@@ -1,0 +1,189 @@
+[{
+        displayName: 'Id',
+        field: 'event_id',
+        width: 50,
+        pinnedLeft: true,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'identifiant événement',
+        chName: '序列',
+        chDesc: '序列',
+        engName: 'Id ',
+        engDesc: 'Id ',
+        frDesc: 'identifiant de l\'événement de jeu'
+    },{
+        field: 'player_id',
+        filterData: 1,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        displayName: 'Player Id',
+        frName: 'identifiant joueur',
+        chName: '球员序号',
+        chDesc: '球员序号',
+        engName: 'Player Id ',
+        engDesc: 'Player Id ',
+        frDesc: 'identifiant du joueur'
+    },{
+        displayName: 'Player',
+        field: 'player_id',
+        cellFilter: 'playerIdToName',
+        width: 100,
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'nom du joueur',
+        chName: '球员',
+        chDesc: '球员',
+        engName: 'Player  ',
+        engDesc: 'Player  ',
+        frDesc: 'nom du joueur'
+    },{
+        displayName: 'Duration',
+        cellFilter: 'getDuration:this.row.entity',
+        field: 'time_duration',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        width: '100',
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: secondAggreg,
+        frName: 'durée',
+        chName: '区间',
+        chDesc: '区间',
+        engName: 'Duration  ',
+        engDesc: 'Duration  ',
+        frDesc: 'durée de l\'événement de jeu'
+    },{
+        displayName: 'Distance',
+        cellFilter: 'toDistance',
+        field: 'dist_m',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'distance m',
+        chName: '距离',
+        chDesc: '距离',
+        engName: 'Distance m',
+        engDesc: 'Distance in meters',
+        frDesc: 'distance en mètres'
+    },{
+        displayName: 'Following Event Id',
+        field: 'next_event_type_id',
+        filterData: 14,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'identifiant événement suivant',
+        chName: '后续事件序号',
+        chDesc: '后续事件序号',
+        engName: 'Following Event Id  ',
+        engDesc: 'Following Event Id  ',
+        frDesc: 'identifiant de l\'événement de jeu suivant'
+    },{
+        displayName: 'Following Event',
+        field: 'next_event_type_id',
+        filterData: 14,
+        cellFilter: 'eventIdToName',
+        width: 100,
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'événement suivant',
+        chName: '后续事件',
+        chDesc: '后续事件',
+        engName: 'Following Event',
+        engDesc: 'Following Event',
+        frDesc: 'nom événement suivant'
+    },{
+        displayName: 'Speed kmh',
+        cellFilter: 'toSpeed',
+        field: 'speed_kmh',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'vitesse kmh',
+        chName: '速度 kmh',
+        chDesc: '速度 kmh',
+        engName: 'Speed kmh',
+        engDesc: 'Speed kmh',
+        frDesc: 'vitesse en km/h'
+    },{
+        displayName: 'Success',
+        field: 'success_id',
+        filterData: 21,
+        width: 100,
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: percentAggreg,
+        frName: 'événement réussi',
+        chName: '成功',
+        chDesc: '成功',
+        engName: 'Success',
+        engDesc: 'Success',
+        frDesc: 'événement réussi ou raté'
+    },{
+        displayName: 'Action Type Id',
+        field: 'game_context_id',
+        filterData: 7,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'identifiant type action',
+        chName: '活动类型序号',
+        chDesc: '活动类型序号',
+        engName: 'Action Type Id',
+        engDesc: 'Action Type Id',
+        frDesc: 'identifiant du type d\'action'
+    },{
+        displayName: 'Action Type',
+        field: 'game_context_id',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        cellFilter: 'gameContextIdToName',
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'Type action',
+        chName: '活动类型',
+        chDesc: '活动类型',
+        engName: 'Action Type ',
+        engDesc: 'Action Type ',
+        frDesc: 'nom du type d\'action'
+    } ]

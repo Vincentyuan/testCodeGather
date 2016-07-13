@@ -1,0 +1,199 @@
+[{
+        displayName: 'Start Pass Options',
+        cellFilter: 'toNumber',
+        field: 'startPassOptions',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'Option passes départ',
+        chName: '开始传球选择',
+        chDesc: '开始传球选择',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Pass Options',
+        engDesc: 'Start Pass Options',
+        frDesc: 'nombre d\'options de passes moyen en en début d\'action'
+    },{
+        displayName: 'Start Defender Dist.',
+        cellFilter: 'toDistance',
+        field: 'startDefenderDist',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'Défenseur distance départ',
+        chName: '防守球员开始区域',
+        chDesc: '防守球员开始区域',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Defender Dist.',
+        engDesc: 'Start Defender Dist.',
+        frDesc: 'distance moyenne par rapport au défenseur le plus proche en début d\'action en mètres'
+    },{
+        displayName: 'End Defender Dist.',
+        cellFilter: 'toDistance',
+        field: 'endDefenderDist',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'Défenseur distance fin',
+        chName: '防守球员结束区域',
+        chDesc: '防守球员结束区域',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End Defender Dist.',
+        engDesc: 'End Defender Dist.',
+        frDesc: 'distance moyenne par rapport au défenseur le plus proche en fin d\'action en mètres'
+    },{
+        displayName: 'Target Player #1',
+        field: 'targetPlayerIds',
+        cellFilter: 'top1PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'joueur destinataire 1',
+        chName: '目标球员1',
+        chDesc: '目标球员1',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Target Player #1',
+        engDesc: 'Target Player #1',
+        frDesc: 'premier joueur destinataire en moyenne'
+    },{
+        displayName: 'Target Player #2',
+        field: 'targetPlayerIds',
+        cellFilter: 'top2PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'joueur destinataire 2',
+        chName: '目标球员2',
+        chDesc: '目标球员2',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Target Player #2',
+        engDesc: 'Target Player #2',
+        frDesc: 'deuxième joueur destinataire en moyenne'
+    },{
+        displayName: 'Target Player #3',
+        field: 'targetPlayerIds',
+        cellFilter: 'top3PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'joueur destinataire 3',
+        chName: '目标球员3',
+        chDesc: '目标球员3',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Target Player #3',
+        engDesc: 'Target Player #3',
+        frDesc: 'troisième joueur destinataire en moyenne'
+    },{
+        displayName: 'Start Defender #1',
+        field: 'startDefenderIds',
+        cellFilter: 'top1PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'départ premier défenseur',
+        chName: '初始防守球员1',
+        chDesc: '初始防守球员1',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Defender #1',
+        engDesc: 'Start Defender #1',
+        frDesc: 'premier défenseur le plus proche en moyenne en début d\'action'
+    },{
+        displayName: 'Start Defender #2',
+        field: 'startDefenderIds',
+        cellFilter: 'top2PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'départ deuxième défenseur',
+        chName: '初始防守球员2',
+        chDesc: '初始防守球员2',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Defender #2',
+        engDesc: 'Start Defender #2',
+        frDesc: 'deuxième défenseur le plus proche en moyenne en début d\'action'
+    },{
+        displayName: 'Start Defender #3',
+        field: 'startDefenderIds',
+        cellFilter: 'top3PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'départ troisième défenseur',
+        chName: '初始防守球员3',
+        chDesc: '初始防守球员3',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Defender #3',
+        engDesc: 'Start Defender #3',
+        frDesc: 'troisième défenseur le plus proche en moyenne en début d\'action'
+    },{
+        displayName: 'End Defender #1',
+        field: 'endDefenderIds',
+        cellFilter: 'top1PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'fin premier défenseur',
+        chName: '终止防守球员1',
+        chDesc: '终止防守球员1',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End Defender #1',
+        engDesc: 'End Defender #1',
+        frDesc: 'premier défenseur le plus proche en moyenne en fin d\'action'
+    },{
+        displayName: 'End Defender #2',
+        field: 'endDefenderIds',
+        cellFilter: 'top2PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'fin deuxième défenseur',
+        chName: '终止防守球员2',
+        chDesc: '终止防守球员2',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End Defender #2',
+        engDesc: 'End Defender #2',
+        frDesc: 'deuxième défenseur le plus proche en moyenne en fin d\'action'
+    }, {
+        displayName: 'End Defender #3',
+        field: 'endDefenderIds',
+        cellFilter: 'top3PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'fin troisième défenseur',
+        chName: '终止防守球员3',
+        chDesc: '终止防守球员3',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End Defender #3',
+        engDesc: 'End Defender #3',
+        frDesc: 'troisième défenseur le plus proche en moyenne en fin d\'action'
+    }]

@@ -1,0 +1,283 @@
+[{
+        displayName: '#Fwd',
+        field: 'fwd',
+        cellFilter: 'toPercent',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'nombre vers l\'avant',
+        chName: '推进',
+        chDesc: '推进',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: '#Fwd',
+        engDesc: '#Fwd',
+        frDesc: 'nombre vers l\'avant'
+    },{
+        displayName: 'Fwd Success',
+        field: 'fwdSuccess',
+        cellFilter: 'toPercent',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'taux réussite vers l\'avant',
+        chName: '推进成功',
+        chDesc: '推进成功',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Fwd Success',
+        engDesc: 'Fwd Success',
+        frDesc: 'taux de réussite vers l\'avant'
+    },{
+        displayName: 'Start #Defenders',
+        field: 'startNbDefenders',
+        cellFilter: 'toNumber',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'départ défenseur',
+        chName: '初始防守球员',
+        chDesc: '初始防守球员',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start #Defenders',
+        engDesc: 'Start #Defenders',
+        frDesc: 'nombre des défenseurs moyen en début d\'action'
+    },{
+        displayName: 'End #Defenders',
+        field: 'endNbDefenders',
+        cellFilter: 'toNumber',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'fin défenseur',
+        chName: '结束防守球员',
+        chDesc: '结束防守球员',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End #Defenders',
+        engDesc: 'End #Defenders',
+        frDesc: 'nombre des défenseurs moyen en fin d\'action'
+    },{
+        displayName: 'Closest Defender Dist.',
+        cellFilter: 'toDistance',
+        field: 'closestDefenderDist',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'distance défenseur proche',
+        chName: '最近的防守区域',
+        chDesc: '最近的防守区域',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Closest Defender Dist.',
+        engDesc: 'Closest Defender Dist.',
+        frDesc: 'distance moyenne par rapport au défenseur le plus proche en mètres'
+    },{
+        displayName: 'Top Defenders #1',
+        field: 'closestDefenderIds',
+        cellFilter: 'top1PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'premier défenseur',
+        chName: '最近的防守球员1',
+        chDesc: '最近的防守球员1',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Top Defenders #1',
+        engDesc: 'Top Defenders #1',
+        frDesc: 'premier défenseur le plus proche en moyenne'
+    },{
+        displayName: 'Top Defenders #2',
+        field: 'closestDefenderIds',
+        cellFilter: 'top2PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'deuxième défenseur',
+        chName: '最近的防守球员2',
+        chDesc: '最近的防守球员2',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Top Defenders #2',
+        engDesc: 'Top Defenders #2',
+        frDesc: 'deuxième défenseur le plus proche en moyenne'
+    },{
+        displayName: 'Top Defenders #3',
+        field: 'closestDefenderIds',
+        cellFilter: 'top3PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'troisième défenseur',
+        chName: '最近的防守球员3',
+        chDesc: '最近的防守球员3',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Top Defenders #3',
+        engDesc: 'Top Defenders #3',
+        frDesc: 'troisième défenseur le plus proche en moyenne'
+    },{
+        displayName: 'Start Pos Type #1',
+        field: 'startPosType',
+        cellFilter: 'top1PosTypeIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'départ position type 1',
+        chName: '开始位置类型1',
+        chDesc: '开始位置类型1',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Pos Type #1',
+        engDesc: 'Start Pos Type #1',
+        frDesc: 'première position interligne en moyenne entre le milieu et la défense adverse en début d\'action'
+    },{
+        displayName: 'Start Pos Type #2',
+        field: 'startPosType',
+        cellFilter: 'top2PosTypeIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'départ position type 2',
+        chName: '开始位置类型2',
+        chDesc: '开始位置类型2',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Pos Type #2',
+        engDesc: 'Start Pos Type #2',
+        frDesc: 'deuxième position interligne en moyenne entre le milieu et la défense adverse en début d\'action'
+    },{
+        displayName: 'Start Pos Type #3',
+        field: 'startPosType',
+        cellFilter: 'top3PosTypeIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'départ position type 3',
+        chName: '开始位置类型3',
+        chDesc: '开始位置类型3',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Pos Type #3',
+        engDesc: 'Start Pos Type #3',
+        frDesc: 'troisième position interligne en moyenne entre le milieu et la défense adverse en début d\'action'
+    },{
+        displayName: 'End Pos Type #1',
+        field: 'endPosType',
+        cellFilter: 'top1PosTypeIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'fin position type 1',
+        chName: '结束位置类型1',
+        chDesc: '结束位置类型1',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End Pos Type #1',
+        engDesc: 'End Pos Type #1',
+        frDesc: 'première position interligne en moyenne entre le milieu et la défense adverse en fin d\'action'
+    },{
+        displayName: 'End Pos Type #2',
+        field: 'endPosType',
+        cellFilter: 'top2PosTypeIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'fin position type 2',
+        chName: '结束位置类型2',
+        chDesc: '结束位置类型2',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End Pos Type #2',
+        engDesc: 'End Pos Type #2',
+        frDesc: 'deuxième position interligne en moyenne entre le milieu et la défense adverse en fin d\'action'
+    },{
+        displayName: 'End Pos Type #3',
+        field: 'endPosType',
+        cellFilter: 'top3PosTypeIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'fin positon type 3',
+        chName: '结束位置类型3',
+        chDesc: '结束位置类型3',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End Pos Type #3',
+        engDesc: 'End Pos Type #3',
+        frDesc: 'troisième position interligne en moyenne entre le milieu et la défense adverse en fin d\'action'
+    },{
+        displayName: 'Top Bottom MidField #1',
+        field: 'startBottomMidFieldPlayerIds',
+        cellFilter: 'top1PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'premier milieu',
+        chName: '我不知道该写啥',
+        chDesc: '我不知道该写啥',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Top Bottom MidField #1',
+        engDesc: 'Top Bottom MidField #1',
+        frDesc: 'premier joueur du milieu le plus bas'
+    },{
+        displayName: 'Top Bottom MidField #2',
+        field: 'startBottomMidFieldPlayerIds',
+        cellFilter: 'top2PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'deuxième milieu',
+        chName: '我不知道该写啥',
+        chDesc: '我不知道该写啥',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Top Bottom MidField #2',
+        engDesc: 'Top Bottom MidField #2',
+        frDesc: 'deuxième joueur du milieu le plus bas'
+    }, {
+        displayName: 'Top Bottom MidField #3',
+        field: 'startBottomMidFieldPlayerIds',
+        cellFilter: 'top3PlayerIdToName',
+        width: 100,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'troisième milieu ',
+        chName: '我不知道该写啥',
+        chDesc: '我不知道该写啥',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Top Bottom MidField #3',
+        engDesc: 'Top Bottom MidField #3',
+        frDesc: 'troisième joueur du milieu le plus bas'
+    }]

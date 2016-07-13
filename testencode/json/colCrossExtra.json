@@ -1,0 +1,221 @@
+[{
+        field: 'target_player_id',
+        filterData: 15,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        displayName: 'Target Player Id',
+        frName: 'identifiant joueur destinataire',
+        chName: '目标球员序号',
+        chDesc: '目标球员序号',
+        engName: 'Target Player Id',
+        engDesc: 'Target Player Id',
+        frDesc: 'identifiant du joueur destinataire'
+    },{
+        displayName: 'Target Player',
+        field: 'target_player_id',
+        width: 100,
+        cellFilter: 'playerIdToName',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'Joueur destinataire',
+        chName: '目标球员',
+        chDesc: '目标球员',
+        engName: 'Target Player',
+        engDesc: 'Target Player',
+        frDesc: 'nom du joueur destinataire'
+    },{
+        displayName: 'Start Def',
+        field: 'start_closest_def_id',
+        cellFilter: 'playerIdToName',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'nom défenseur proche',
+        chName: '开始定义',
+        chDesc: '开始定义',
+        engName: 'Start Def',
+        engDesc: 'Start Def',
+        frDesc: 'nom du défenseur le plus proche au début de l\'action'
+    },{
+        displayName: 'Start Def Id',
+        field: 'start_closest_def_id',
+        filterData: 16,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'identifiant défenseur proche début',
+        chName: '开始定义序号',
+        chDesc: '开始定义序号',
+        engName: 'Start Def Id',
+        engDesc: 'Start Def Id',
+        frDesc: 'identifiant du défenseur le plus proche au début de l\'action'
+    },{
+        displayName: 'Start Def Dist.',
+        cellFilter: 'toDistance',
+        field: 'start_closest_def_dist',
+        filterData: 24,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'distance défenseur proche début',
+        chName: '开始定义距离',
+        chDesc: '开始定义距离',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Start Def Dist',
+        engDesc: 'Start Def Dist',
+        frDesc: 'distance par rapport au défenseur le plus proche au début de l\'action'
+    },{
+        displayName: 'End Def Id',
+        field: 'end_closest_def_id',
+        filterData: 17,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'identifiant défenseur proche fin',
+        chName: '结束定义序号',
+        chDesc: '结束定义序号',
+        engName: 'End Def Id',
+        engDesc: 'End Def Id',
+        frDesc: 'identifiant du défenseur le plus proche en fin d\'action'
+    },{
+        displayName: 'End Def',
+        field: 'end_closest_def_id',
+        cellFilter: 'playerIdToName',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        frName: 'Identifiant défenseur proche fin',
+        chName: '结束定义',
+        chDesc: '结束定义',
+        engName: 'End Def ',
+        engDesc: 'End Def ',
+        frDesc: 'Identifiant du défenseur le plus proche en fin d\'action'
+    },{
+        displayName: 'End Def Dist',
+        cellFilter: 'toDistance',
+        field: 'end_closest_def_dist',
+        filterData: 25,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'distance défenseur proche fin',
+        chName: '结束定义距离',
+        chDesc: '结束定义距离',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'End Def Dist',
+        engDesc: 'End Def Dist',
+        frDesc: 'distance par rapport au défenseur le plus proche en fin d\'action'
+    },{
+        displayName: '#Start Pass Options',
+        field: 'start_n_possible_pass',
+        filterData: 28,
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: numberAggreg,
+        frName: 'Options passes début',
+        chName: '开始过人的选择',
+        chDesc: '开始过人的选择',
+        engName: '#Start Pass Options',
+        engDesc: '#Start Pass Options',
+        frDesc: 'nombre d\'options de passes en début d\'action'
+    },{
+        displayName: '#Passes Before',
+        field: 'n_pass_begin_seq',
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: numberAggreg,
+        frName: 'Passes précédentes',
+        chName: '过人之前',
+        chDesc: '过人之前',
+        engName: '#Passes Before',
+        engDesc: '#Passes Before',
+        frDesc: 'nombre de passes précédentes'
+    },{
+        displayName: 'Time Before',
+        field: 'time_begin_seq_sec',
+        cellFilter: 'toSecond',
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: rowValueAggregation,
+        frName: 'durée début action',
+        chName: '时间之前',
+        chDesc: '时间之前',
+        filterCellFiltered: true,
+        sortCellFiltered: true,
+        engName: 'Time Before',
+        engDesc: 'Time Before',
+        frDesc: 'durée depuis le début de l\'action'
+    },{
+        displayName: '#Teammates in Box',
+        field: 'n_teammates_in_box',
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: numberAggreg,
+        frName: 'nombre coéquipiers surface',
+        chName: '在角球的队员',
+        chDesc: '在角球的队员',
+        engName: '#Teammates in Box',
+        engDesc: '#Teammates in Box',
+        frDesc: 'nombre de coéquipiers dans la surface'
+    },{
+        displayName: '#Opponents in box',
+        field: 'n_opponent_in_box',
+        width: 100,
+        cellClass: sequenceCellClass,
+        filter: {
+            condition: customFilterCondition
+        },
+        treeAggregationType: 'avg',
+        customTreeAggregationFinalizerFn: numberAggreg,
+        frName: 'nombre adversaires surface',
+        chName: '在角球的对方球队的队员',
+        chDesc: '在角球的对方球队的队员',
+        engName: '#Opponents in Box',
+        engDesc: '#Opponents in Box',
+        frDesc: 'nombre d\'adversaires dans la surface'
+    }]
