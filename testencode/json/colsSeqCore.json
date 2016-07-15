@@ -1,386 +1,286 @@
 [{
-            field: 'game_id',
-            displayName: 'Game Id',
-            frName: 'Identifiant Match',
-            engName: 'Game Id',
-            frDesc: 'identifiant du match',
-            engDesc: 'game identity',
-            chName: '比赛序号',
-            chDesc: '比赛序号',
-            visible: false,
-            filterData: eFilterData.game,
-            width: 80,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //cellFilter: 'gameIdToName',
-        {
-
-            field: 'game_id',
-            displayName: 'Game Title',
-            frName: 'Titre Match',
-            engName: 'Game Title',
-            frDesc: 'Titre du Match',
-            engDesc: 'Game Title',
-            chName: '比赛标题',
-            chDesc: '比赛标题',
-            cellFilter: 'gameIdToName',
-            filterCellFiltered: true,
-            sortCellFiltered: true,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filterCellFiltered: true,
-            sortCellFiltered: true,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //, filter: {  condition: customFilterCondition}
-
-        {
-            field: 'halftime',
-            displayName: 'Half Time',
-            frName: 'Mi Temps',
-            engName: 'Half Time',
-            frDesc: 'match décomposé en plusieurs parties : 6: match complet - 1:1ère mi temps - 2: 2ème mi temps',
-            engDesc: 'game is making up through different parts : 6 whole game - 1: 1st half - 2: 2nd half',
-            chName: '比赛标题',
-            chDesc: '比赛标题',
-            width: 110,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //2
-        {
-            field: 'sequence_id',
-            displayName: 'Sequence id',
-            frName: 'Identifiant Séquence',
-            engName: 'Sequence id',
-            frDesc: 'Identifiant de la séquence de jeu',
-            engDesc: 'Sequence id',
-            chName: '序列号',
-            chDesc: '序列号',
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, {
-            displayName: 'Start',
-            field: 'start_frame',
-            frName: 'Début action',
-            engName: 'Start',
-            frDesc: 'Début de l\'action',
-            engDesc: 'Start',
-            chName: '开始',
-            chDesc: '开始',
-            cellFilter: 'toTimeHMS:this.row.entity',
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //3
-        {
-            displayName: 'End',
-            field: 'end_frame',
-            frName: 'Fin action',
-            engName: 'End',
-            frDesc: 'Fin de l\'action',
-            engDesc: 'End',
-            chName: '结束',
-            chDesc: '结束',
-            cellFilter: 'toTimeHMS:this.row.entity',
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //4
-        {
-            displayName: 'Attacking Team Id',
-            field: 'team_id',
-            frName: 'Identifiant équipe attaque',
-            engName: 'Attacking Team Id',
-            frDesc: 'Identifiant de l\'équipe d\'attaque',
-            engDesc: 'Attacking Team Id',
-            chName: '进攻球队序号',
-            chDesc: '进攻球队序号',
-            visible: false,
-            filterData: eFilterData.playContext,
-            filterCondition: filterAttackTeam,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //cellFilter: 'teamIdToName',
-        {
-            displayName: 'Attacking Team',
-            field: 'team_id',
-            frName: 'équipe attaque',
-            engName: 'Attacking Team ',
-            frDesc: 'Equipe qui attaque',
-            engDesc: 'Attacking Team ',
-            chName: '进攻球队',
-            chDesc: '进攻球队',
-            cellFilter: 'teamIdToName',
-            filterCellFiltered: true,
-            sortCellFiltered: true,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        },
-
-        {
-            displayName: 'Start X Area Id',
-            field: 'start_area_x_id',
-            frName: 'Identifiant zone X départ',
-            engName: 'Start X Area Id',
-            frDesc: 'Identifiant de la zone X de départ',
-            engDesc: 'Start X Area Id',
-            chName: '开始区域X序号',
-            chDesc: '开始区域X序号',
-            visible: false,
-            filterData: eFilterData.startArea,
-            filterCondition: filterStartAreaId,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //6
-        {
-            displayName: 'End X Aarea Id',
-            field: 'end_area_x_id',
-            frName: 'Zone X fin',
-            engName: 'End X Aarea Id',
-            frDesc: 'Identifiant de la zone X de fin',
-            engDesc: 'End X Aarea Id',
-            chName: '结束区域X序号',
-            chDesc: '结束区域X序号',
-            visible: false,
-            filterData: eFilterData.endArea,
-            filterCondition: filterEndAreaId,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //7
-        {
-            displayName: 'Start Y Area Id',
-            field: 'start_area_y_id',
-            frName: 'Identifiant zone Y départ',
-            engName: 'Start Y Area Id',
-            frDesc: 'Identifiant de la zone Y de départ',
-            engDesc: 'Start Y Area Id',
-            chName: '开始区域Y序号',
-            chDesc: '开始区域Y序号',
-            visible: false,
-            filterData: eFilterData.startArea,
-            filterCondition: filterStartAreaId,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //6
-        {
-            displayName: 'End Y Area Id',
-            field: 'end_area_y_id',
-            frName: 'Zone Y fin',
-            engName: 'End Y Area Id',
-            frDesc: 'Identifiant de la zone Y de fin',
-            engDesc: 'End Y Area Id',
-            chName: '结束区域Y序号',
-            chDesc: '结束区域Y序号',
-            visible: false,
-            filterData: eFilterData.endArea,
-            filterCondition: filterEndAreaId,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //7
-
-        {
-            displayName: 'Start X Area',
-            field: 'start_area_x_id',
-            frName: 'Départ zone X',
-            engName: 'Start X Area',
-            frDesc: 'Départ de la zone X',
-            engDesc: 'Start X Area',
-            chName: '开始区域X',
-            chDesc: '开始区域X',
-            cellFilter: 'xAreaIdToName',
-            filterCellFiltered: true,
-            sortCellFiltered: true,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //6
-        {
-            displayName: 'End X Area',
-            field: 'end_area_x_id',
-            frName: 'Fin zone X',
-            engName: 'End X Area',
-            frDesc: 'Fin de la zone X',
-            engDesc: 'End X Area',
-            chName: '结束区域X',
-            chDesc: '结束区域X',
-            cellFilter: 'xAreaIdToName',
-            filterCellFiltered: true,
-            sortCellFiltered: true,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //7
-        {
-            displayName: 'Start Y Area',
-            field: 'start_area_y_id',
-            frName: 'Départ zone Y',
-            engName: 'Start Y Area',
-            frDesc: 'Départ de la zone Y',
-            engDesc: 'Start Y Area',
-            chName: '开始区域Y',
-            chDesc: '开始区域Y',
-            cellFilter: 'yAreaIdToName',
-            filterCellFiltered: true,
-            sortCellFiltered: true,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //6
-        {
-            displayName: 'End Y Area',
-            field: 'end_area_y_id',
-            frName: 'Fin zone Y',
-            engName: 'End Y Area',
-            frDesc: 'Fin de la zone Y',
-            engDesc: 'End Y Area',
-            chName: '结束区域Y',
-            chDesc: '结束区域Y',
-            cellFilter: 'yAreaIdToName',
-            filterCellFiltered: true,
-            sortCellFiltered: true,
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            }
-        }, //7
-
-        //    { displayName: 'player', field: 'player_id', filterData : eFilterData.player, cellFilter : 'playerIdToName',  width: 100, cellClass: sequenceCellClass , filter: { condition: customFilterCondition} },
-        {
-            field: 'start_x',
-            displayName: 'Start X',
-            frName: 'Départ X',
-            engName: 'Start X',
-            frDesc: 'Départ X',
-            engDesc: 'Start X',
-            chName: '开始 X',
-            chDesc: '开始 X',
-            cellFilter: 'toNumber',
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            },
-            treeAggregationType: 'avg',
-            customTreeAggregationFinalizerFn: rowValueAggregation
-        }, {
-            field: 'start_y',
-            displayName: 'Start Y',
-            frName: 'Départ Y',
-            engName: 'Start Y',
-            frDesc: 'Départ Y',
-            engDesc: 'Start Y',
-            chName: '开始 Y',
-            chDesc: '开始 Y',
-            cellFilter: 'toNumber',
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            },
-            treeAggregationType: 'avg',
-            customTreeAggregationFinalizerFn: rowValueAggregation
-        }, {
-            field: 'end_x',
-            displayName: 'End X',
-            frName: 'Fin X',
-            engName: 'End X',
-            frDesc: 'Fin X',
-            engDesc: 'End X',
-            chName: '结束 X',
-            chDesc: '结束 X',
-            cellFilter: 'toNumber',
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            },
-            treeAggregationType: 'avg',
-            customTreeAggregationFinalizerFn: rowValueAggregation
-        }, {
-            field: 'end_y',
-            displayName: 'End Y',
-            frName: 'Fin Y',
-            engName: 'End Y',
-            frDesc: 'Fin Y',
-            engDesc: 'End Y',
-            chName: '结束 Y',
-            chDesc: '结束 Y',
-            cellFilter: 'toNumber',
-            width: 100,
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            },
-            treeAggregationType: 'avg',
-            customTreeAggregationFinalizerFn: rowValueAggregation
-        },
-        //calculated
-        {
-            field: 'duration',
-            displayName: 'Duration',
-            frName: 'Durée',
-            engName: 'Duration',
-            frDesc: 'Durée',
-            engDesc: 'Duration',
-            chName: '持续时间',
-            chDesc: '持续时间',
-            cellFilter: 'getDuration:this.row.entity',
-            filterCellFiltered: true,
-            sortCellFiltered: true,
-            width: '100',
-            cellClass: sequenceCellClass,
-            filter: {
-                condition: customFilterCondition
-            },
-            treeAggregationType: 'avg',
-            customTreeAggregationFinalizerFn: secondAggreg
-        }, {
-            field: 'isPlaying',
-            displayName: 'Is Playing',
-            frName: 'En Lecture',
-            engName: 'Is Playing',
-            frDesc: 'Indique si l\'action est en lecture vidéo',
-            engDesc: 'Is Playing',
-            chName: '正在比赛',
-            chDesc: '正在比赛',
-            width: '80',
-            cellClass: sequenceCellClass
-        }
-    ]
+    "field": "game_id",
+    "displayName": "Game Id",
+    "frName": "Identifiant Match",
+    "engName": "Game Id",
+    "frDesc": "identifiant du match",
+    "engDesc": "game identity",
+    "chName": "比赛序号",
+    "chDesc": "比赛序号",
+    "visible": false,
+    "filterData": 2,
+    "width": 80,
+    "filter": {}
+}, {
+    "field": "game_id",
+    "displayName": "Game Title",
+    "frName": "Titre Match",
+    "engName": "Game Title",
+    "frDesc": "Titre du Match",
+    "engDesc": "Game Title",
+    "chName": "比赛标题",
+    "chDesc": "比赛标题",
+    "cellFilter": "gameIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "width": 100,
+    "filter": {}
+}, {
+    "field": "halftime",
+    "displayName": "Half Time",
+    "frName": "Mi Temps",
+    "engName": "Half Time",
+    "frDesc": "match décomposé en plusieurs parties : 6: match complet - 1:1ère mi temps - 2: 2ème mi temps",
+    "engDesc": "game is making up through different parts : 6 whole game - 1: 1st half - 2: 2nd half",
+    "chName": "比赛标题",
+    "chDesc": "比赛标题",
+    "width": 110,
+    "filter": {}
+}, {
+    "field": "sequence_id",
+    "displayName": "Sequence id",
+    "frName": "Identifiant Séquence",
+    "engName": "Sequence id",
+    "frDesc": "Identifiant de la séquence de jeu",
+    "engDesc": "Sequence id",
+    "chName": "序列号",
+    "chDesc": "序列号",
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "Start",
+    "field": "start_frame",
+    "frName": "Début action",
+    "engName": "Start",
+    "frDesc": "Début de l'action",
+    "engDesc": "Start",
+    "chName": "开始",
+    "chDesc": "开始",
+    "cellFilter": "toTimeHMS:this.row.entity",
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "End",
+    "field": "end_frame",
+    "frName": "Fin action",
+    "engName": "End",
+    "frDesc": "Fin de l'action",
+    "engDesc": "End",
+    "chName": "结束",
+    "chDesc": "结束",
+    "cellFilter": "toTimeHMS:this.row.entity",
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "Attacking Team Id",
+    "field": "team_id",
+    "frName": "Identifiant équipe attaque",
+    "engName": "Attacking Team Id",
+    "frDesc": "Identifiant de l'équipe d'attaque",
+    "engDesc": "Attacking Team Id",
+    "chName": "进攻球队序号",
+    "chDesc": "进攻球队序号",
+    "visible": false,
+    "filterData": 5,
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "Attacking Team",
+    "field": "team_id",
+    "frName": "équipe attaque",
+    "engName": "Attacking Team ",
+    "frDesc": "Equipe qui attaque",
+    "engDesc": "Attacking Team ",
+    "chName": "进攻球队",
+    "chDesc": "进攻球队",
+    "cellFilter": "teamIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "Start X Area Id",
+    "field": "start_area_x_id",
+    "frName": "Identifiant zone X départ",
+    "engName": "Start X Area Id",
+    "frDesc": "Identifiant de la zone X de départ",
+    "engDesc": "Start X Area Id",
+    "chName": "开始区域X序号",
+    "chDesc": "开始区域X序号",
+    "visible": false,
+    "filterData": 3,
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "End X Aarea Id",
+    "field": "end_area_x_id",
+    "frName": "Zone X fin",
+    "engName": "End X Aarea Id",
+    "frDesc": "Identifiant de la zone X de fin",
+    "engDesc": "End X Aarea Id",
+    "chName": "结束区域X序号",
+    "chDesc": "结束区域X序号",
+    "visible": false,
+    "filterData": 4,
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "Start Y Area Id",
+    "field": "start_area_y_id",
+    "frName": "Identifiant zone Y départ",
+    "engName": "Start Y Area Id",
+    "frDesc": "Identifiant de la zone Y de départ",
+    "engDesc": "Start Y Area Id",
+    "chName": "开始区域Y序号",
+    "chDesc": "开始区域Y序号",
+    "visible": false,
+    "filterData": 3,
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "End Y Area Id",
+    "field": "end_area_y_id",
+    "frName": "Zone Y fin",
+    "engName": "End Y Area Id",
+    "frDesc": "Identifiant de la zone Y de fin",
+    "engDesc": "End Y Area Id",
+    "chName": "结束区域Y序号",
+    "chDesc": "结束区域Y序号",
+    "visible": false,
+    "filterData": 4,
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "Start X Area",
+    "field": "start_area_x_id",
+    "frName": "Départ zone X",
+    "engName": "Start X Area",
+    "frDesc": "Départ de la zone X",
+    "engDesc": "Start X Area",
+    "chName": "开始区域X",
+    "chDesc": "开始区域X",
+    "cellFilter": "xAreaIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "End X Area",
+    "field": "end_area_x_id",
+    "frName": "Fin zone X",
+    "engName": "End X Area",
+    "frDesc": "Fin de la zone X",
+    "engDesc": "End X Area",
+    "chName": "结束区域X",
+    "chDesc": "结束区域X",
+    "cellFilter": "xAreaIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "Start Y Area",
+    "field": "start_area_y_id",
+    "frName": "Départ zone Y",
+    "engName": "Start Y Area",
+    "frDesc": "Départ de la zone Y",
+    "engDesc": "Start Y Area",
+    "chName": "开始区域Y",
+    "chDesc": "开始区域Y",
+    "cellFilter": "yAreaIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "width": 100,
+    "filter": {}
+}, {
+    "displayName": "End Y Area",
+    "field": "end_area_y_id",
+    "frName": "Fin zone Y",
+    "engName": "End Y Area",
+    "frDesc": "Fin de la zone Y",
+    "engDesc": "End Y Area",
+    "chName": "结束区域Y",
+    "chDesc": "结束区域Y",
+    "cellFilter": "yAreaIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "width": 100,
+    "filter": {}
+}, {
+    "field": "start_x",
+    "displayName": "Start X",
+    "frName": "Départ X",
+    "engName": "Start X",
+    "frDesc": "Départ X",
+    "engDesc": "Start X",
+    "chName": "开始 X",
+    "chDesc": "开始 X",
+    "cellFilter": "toNumber",
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg"
+}, {
+    "field": "start_y",
+    "displayName": "Start Y",
+    "frName": "Départ Y",
+    "engName": "Start Y",
+    "frDesc": "Départ Y",
+    "engDesc": "Start Y",
+    "chName": "开始 Y",
+    "chDesc": "开始 Y",
+    "cellFilter": "toNumber",
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg"
+}, {
+    "field": "end_x",
+    "displayName": "End X",
+    "frName": "Fin X",
+    "engName": "End X",
+    "frDesc": "Fin X",
+    "engDesc": "End X",
+    "chName": "结束 X",
+    "chDesc": "结束 X",
+    "cellFilter": "toNumber",
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg"
+}, {
+    "field": "end_y",
+    "displayName": "End Y",
+    "frName": "Fin Y",
+    "engName": "End Y",
+    "frDesc": "Fin Y",
+    "engDesc": "End Y",
+    "chName": "结束 Y",
+    "chDesc": "结束 Y",
+    "cellFilter": "toNumber",
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg"
+}, {
+    "field": "duration",
+    "displayName": "Duration",
+    "frName": "Durée",
+    "engName": "Duration",
+    "frDesc": "Durée",
+    "engDesc": "Duration",
+    "chName": "持续时间",
+    "chDesc": "持续时间",
+    "cellFilter": "getDuration:this.row.entity",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "width": "100",
+    "filter": {},
+    "treeAggregationType": "avg"
+}, {
+    "field": "isPlaying",
+    "displayName": "Is Playing",
+    "frName": "En Lecture",
+    "engName": "Is Playing",
+    "frDesc": "Indique si l'action est en lecture vidéo",
+    "engDesc": "Is Playing",
+    "chName": "正在比赛",
+    "chDesc": "正在比赛",
+    "width": "80"
+}]

@@ -1,572 +1,435 @@
-this is the information of $response( the test is for  test readdata )  
+this is the information of $file content( the test is for  file )  
+
+[{
+    "cellFilter": "toDistance",
+    "field": "dist_gained_m",
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg",
+    "displayName": "Distance Gained",
+    "frName": "distance gagnée",
+    "chName": "推进距离",
+    "chDesc": "推进距离",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "engName": "Distance Gained",
+    "engDesc": "Distance Gained",
+    "frDesc": "distance gagnée"
+}, {
+    "displayName": "#Start Covering Def.",
+    "field": "start_n_covering_def",
+    "filterData": 26,
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg",
+    "frName": "départ coverture défenseur",
+    "chName": "开始覆盖定义",
+    "chDesc": "开始覆盖定义",
+    "engName": "#Start Covering Def.",
+    "engDesc": "#Start Covering Def.",
+    "frDesc": "nombre des défenseurs entre le joueur et le but adverse en début d'action"
+}, {
+    "displayName": "#End Covering Def.",
+    "field": "end_n_covering_def",
+    "filterData": 27,
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg",
+    "frName": "fin couverture défenseur",
+    "chName": "结束覆盖定义",
+    "chDesc": "结束覆盖定义",
+    "engName": "#End Covering Def.",
+    "engDesc": "#End Covering Def.",
+    "frDesc": "nombre des défenseurs entre le joueur et le but adverse en fin d'action"
+}, {
+    "field": "closest_def_id",
+    "filterData": 18,
+    "width": 100,
+    "filter": {},
+    "displayName": "Closest Defender Id",
+    "frName": "identifiant défenseur proche",
+    "chName": "最近防守球员序号",
+    "chDesc": "最近防守球员序号",
+    "engName": "Closest Defender Id",
+    "engDesc": "Closest Defender Id",
+    "frDesc": "identifiant du défenseur le plus proche"
+}, {
+    "displayName": "Closest Def",
+    "field": "closest_def_id",
+    "cellFilter": "playerIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "width": 100,
+    "filter": {},
+    "frName": "identifiant défenseur proche",
+    "chName": "最近定义",
+    "chDesc": "最近定义",
+    "engName": "Closest Def",
+    "engDesc": "Closest Def",
+    "frDesc": "identifiant du défenseur le plus proche"
+}, {
+    "displayName": "Start Bottom Midfield Id",
+    "field": "start_op_bot_mid_play_id",
+    "filterData": 19,
+    "width": 100,
+    "cellFilter": "playerIdToName",
+    "filter": {},
+    "frName": "identifiant joueur milieu départ",
+    "chName": "开始底线中区序列",
+    "chDesc": "开始底线中区序列",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "engName": "Start Bottom Midfield Id",
+    "engDesc": "Start Bottom Midfield Id",
+    "frDesc": "identifiant du joueur du milieu le plus bas en début d'action"
+}, {
+    "displayName": "End Bottom Midfield Id",
+    "field": "end_op_bot_mid_play_id",
+    "filterData": 20,
+    "width": 100,
+    "cellFilter": "playerIdToName",
+    "filter": {},
+    "frName": "identifiant joueur milieu fin",
+    "chName": "结束底线中区序列",
+    "chDesc": "结束底线中区序列",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "engName": "End Bottom Midfield Id",
+    "engDesc": "End Bottom Midfield Id",
+    "frDesc": "identifiant du joueur du milieu le plus bas en fin d'action"
+}, {
+    "displayName": "Start Bottom Midfield",
+    "field": "start_op_bot_mid_play_id",
+    "width": 100,
+    "cellFilter": "playerIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "filter": {},
+    "frName": "Identifiant joueur milieu  début départ",
+    "chName": "结束底线中区",
+    "chDesc": "结束底线中区",
+    "engName": "Start Bottom Midfield",
+    "engDesc": "Start Bottom Midfield",
+    "frDesc": "nom du joueur du milieu le plus bas en début d'action"
+}, {
+    "displayName": "End Bottom Midfield",
+    "field": "end_op_bot_mid_play_id",
+    "width": 100,
+    "cellFilter": "playerIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "filter": {},
+    "frName": "nom joueur milieu fin",
+    "chName": "结束底线中区",
+    "chDesc": "结束底线中区",
+    "engName": "End Bottom Midfield ",
+    "engDesc": "End Bottom Midfield ",
+    "frDesc": "nom du joueur du milieu le plus bas en fin d'action"
+}, {
+    "cellFilter": "toDistance",
+    "field": "closest_def_dist",
+    "filterData": 24,
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg",
+    "displayName": "undefined",
+    "frName": "distance défenseur proche",
+    "chName": "",
+    "chDesc": "",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "engName": "",
+    "engDesc": "",
+    "frDesc": "distance par rapport au défenseur le plus proche"
+}, {
+    "displayName": "Start Position Type Id",
+    "field": "start_between_op_midfield_defense",
+    "filterData": 12,
+    "width": 100,
+    "cellFilter": "positionTypeIdToName",
+    "filter": {},
+    "frName": "identifiant position type départ",
+    "chName": "开始位置类型序列号",
+    "chDesc": "开始位置类型序列号",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "engName": "Start Position Type Id ",
+    "engDesc": "Start Position Type Id",
+    "frDesc": "identifiant de la position interligne entre le milieu et la défense adverse en début d'action"
+}, {
+    "displayName": "End Position Type Id",
+    "field": "end_between_op_midfield_defense",
+    "filterData": 13,
+    "width": 100,
+    "cellFilter": "positionTypeIdToName",
+    "filter": {},
+    "frName": "identifiant position fin",
+    "chName": "结束位置类型序列号",
+    "chDesc": "结束位置类型序列号",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "engName": "End Position Type Id ",
+    "engDesc": "End Position Type Id",
+    "frDesc": "identifiant de la position interligne entre le milieu et la défense adverse en fin d'action"
+}, {
+    "displayName": "Start Position Type",
+    "field": "start_between_op_midfield_defense",
+    "width": 100,
+    "cellFilter": "positionTypeIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "filter": {},
+    "frName": "départ type position",
+    "chName": "开始位置类型",
+    "chDesc": "开始位置类型",
+    "engName": "Start Position Type  ",
+    "engDesc": "Start Position Type ",
+    "frDesc": "position interligne entre le milieu et la défense adverse en début d'action"
+}, {
+    "displayName": "End Position Type",
+    "field": "end_between_op_midfield_defense",
+    "width": 100,
+    "cellFilter": "positionTypeIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "filter": {},
+    "frName": "type position fin",
+    "chName": "结束位置类型",
+    "chDesc": "结束位置类型",
+    "engName": "End Position Type ",
+    "engDesc": "End Position Type",
+    "frDesc": "position interligne entre le milieu et la défense adverse en fin d'action"
+}]
+      ======>the type of the value is :string
+this is end of object $file content 
+this is the information of $json test( the test is for  test json )  
 this is one array 
 	0 :	this is one array 
-		team_id :		0      ======>the type of the value is :string
-		name :		UNDEFINED      ======>the type of the value is :string
-		alpha_code :		UND      ======>the type of the value is :string
-		full_name :		UNDEFINED TEAM      ======>the type of the value is :string
-		country :		NO COUNTRY      ======>the type of the value is :string
-		country_id :		0      ======>the type of the value is :string
+		cellFilter :		toDistance      ======>the type of the value is :string
+		field :		dist_gained_m      ======>the type of the value is :string
+		width :		100      ======>the type of the value is :integer
+		filter :		this is one array 
+		the array is end 
+		treeAggregationType :		avg      ======>the type of the value is :string
+		displayName :		Distance Gained      ======>the type of the value is :string
+		frName :		distance gagnée      ======>the type of the value is :string
+		chName :		推进距离      ======>the type of the value is :string
+		chDesc :		推进距离      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		engName :		Distance Gained      ======>the type of the value is :string
+		engDesc :		Distance Gained      ======>the type of the value is :string
+		frDesc :		distance gagnée      ======>the type of the value is :string
 	the array is end 
 	1 :	this is one array 
-		team_id :		19      ======>the type of the value is :string
-		name :		????      ======>the type of the value is :string
-		alpha_code :		USCL      ======>the type of the value is :string
-		full_name :		US CRETEIL-LUSITANOS      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		displayName :		#Start Covering Def.      ======>the type of the value is :string
+		field :		start_n_covering_def      ======>the type of the value is :string
+		filterData :		26      ======>the type of the value is :integer
+		width :		100      ======>the type of the value is :integer
+		filter :		this is one array 
+		the array is end 
+		treeAggregationType :		avg      ======>the type of the value is :string
+		frName :		départ coverture défenseur      ======>the type of the value is :string
+		chName :		开始覆盖定义      ======>the type of the value is :string
+		chDesc :		开始覆盖定义      ======>the type of the value is :string
+		engName :		#Start Covering Def.      ======>the type of the value is :string
+		engDesc :		#Start Covering Def.      ======>the type of the value is :string
+		frDesc :		nombre des défenseurs entre le joueur et le but adverse en début d'action      ======>the type of the value is :string
 	the array is end 
 	2 :	this is one array 
-		team_id :		20      ======>the type of the value is :string
-		name :		AJACCIO      ======>the type of the value is :string
-		alpha_code :		ACA      ======>the type of the value is :string
-		full_name :		AC AJACCIO      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		displayName :		#End Covering Def.      ======>the type of the value is :string
+		field :		end_n_covering_def      ======>the type of the value is :string
+		filterData :		27      ======>the type of the value is :integer
+		width :		100      ======>the type of the value is :integer
+		filter :		this is one array 
+		the array is end 
+		treeAggregationType :		avg      ======>the type of the value is :string
+		frName :		fin couverture défenseur      ======>the type of the value is :string
+		chName :		结束覆盖定义      ======>the type of the value is :string
+		chDesc :		结束覆盖定义      ======>the type of the value is :string
+		engName :		#End Covering Def.      ======>the type of the value is :string
+		engDesc :		#End Covering Def.      ======>the type of the value is :string
+		frDesc :		nombre des défenseurs entre le joueur et le but adverse en fin d'action      ======>the type of the value is :string
 	the array is end 
 	3 :	this is one array 
-		team_id :		21      ======>the type of the value is :string
-		name :		ANGERS      ======>the type of the value is :string
-		alpha_code :		SCO      ======>the type of the value is :string
-		full_name :		ANGERS SCO      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		field :		closest_def_id      ======>the type of the value is :string
+		filterData :		18      ======>the type of the value is :integer
+		width :		100      ======>the type of the value is :integer
+		filter :		this is one array 
+		the array is end 
+		displayName :		Closest Defender Id      ======>the type of the value is :string
+		frName :		identifiant défenseur proche      ======>the type of the value is :string
+		chName :		最近防守球员序号      ======>the type of the value is :string
+		chDesc :		最近防守球员序号      ======>the type of the value is :string
+		engName :		Closest Defender Id      ======>the type of the value is :string
+		engDesc :		Closest Defender Id      ======>the type of the value is :string
+		frDesc :		identifiant du défenseur le plus proche      ======>the type of the value is :string
 	the array is end 
 	4 :	this is one array 
-		team_id :		22      ======>the type of the value is :string
-		name :		AVIGNON      ======>the type of the value is :string
-		alpha_code :		ACA      ======>the type of the value is :string
-		full_name :		AC ARLES AVIGNON      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		displayName :		Closest Def      ======>the type of the value is :string
+		field :		closest_def_id      ======>the type of the value is :string
+		cellFilter :		playerIdToName      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		width :		100      ======>the type of the value is :integer
+		filter :		this is one array 
+		the array is end 
+		frName :		identifiant défenseur proche      ======>the type of the value is :string
+		chName :		最近定义      ======>the type of the value is :string
+		chDesc :		最近定义      ======>the type of the value is :string
+		engName :		Closest Def      ======>the type of the value is :string
+		engDesc :		Closest Def      ======>the type of the value is :string
+		frDesc :		identifiant du défenseur le plus proche      ======>the type of the value is :string
 	the array is end 
 	5 :	this is one array 
-		team_id :		23      ======>the type of the value is :string
-		name :		AUXERRE      ======>the type of the value is :string
-		alpha_code :		AJA      ======>the type of the value is :string
-		full_name :		AJ AUXERRE      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		displayName :		Start Bottom Midfield Id      ======>the type of the value is :string
+		field :		start_op_bot_mid_play_id      ======>the type of the value is :string
+		filterData :		19      ======>the type of the value is :integer
+		width :		100      ======>the type of the value is :integer
+		cellFilter :		playerIdToName      ======>the type of the value is :string
+		filter :		this is one array 
+		the array is end 
+		frName :		identifiant joueur milieu départ      ======>the type of the value is :string
+		chName :		开始底线中区序列      ======>the type of the value is :string
+		chDesc :		开始底线中区序列      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		engName :		Start Bottom Midfield Id      ======>the type of the value is :string
+		engDesc :		Start Bottom Midfield Id      ======>the type of the value is :string
+		frDesc :		identifiant du joueur du milieu le plus bas en début d'action      ======>the type of the value is :string
 	the array is end 
 	6 :	this is one array 
-		team_id :		24      ======>the type of the value is :string
-		name :		BREST      ======>the type of the value is :string
-		alpha_code :		SB29      ======>the type of the value is :string
-		full_name :		STADE BRESTOIS 29      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		displayName :		End Bottom Midfield Id      ======>the type of the value is :string
+		field :		end_op_bot_mid_play_id      ======>the type of the value is :string
+		filterData :		20      ======>the type of the value is :integer
+		width :		100      ======>the type of the value is :integer
+		cellFilter :		playerIdToName      ======>the type of the value is :string
+		filter :		this is one array 
+		the array is end 
+		frName :		identifiant joueur milieu fin      ======>the type of the value is :string
+		chName :		结束底线中区序列      ======>the type of the value is :string
+		chDesc :		结束底线中区序列      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		engName :		End Bottom Midfield Id      ======>the type of the value is :string
+		engDesc :		End Bottom Midfield Id      ======>the type of the value is :string
+		frDesc :		identifiant du joueur du milieu le plus bas en fin d'action      ======>the type of the value is :string
 	the array is end 
 	7 :	this is one array 
-		team_id :		25      ======>the type of the value is :string
-		name :		CLERMONT      ======>the type of the value is :string
-		alpha_code :		CF63      ======>the type of the value is :string
-		full_name :		CLERMONT FOOT 63      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		displayName :		Start Bottom Midfield      ======>the type of the value is :string
+		field :		start_op_bot_mid_play_id      ======>the type of the value is :string
+		width :		100      ======>the type of the value is :integer
+		cellFilter :		playerIdToName      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		filter :		this is one array 
+		the array is end 
+		frName :		Identifiant joueur milieu  début départ      ======>the type of the value is :string
+		chName :		结束底线中区      ======>the type of the value is :string
+		chDesc :		结束底线中区      ======>the type of the value is :string
+		engName :		Start Bottom Midfield      ======>the type of the value is :string
+		engDesc :		Start Bottom Midfield      ======>the type of the value is :string
+		frDesc :		nom du joueur du milieu le plus bas en début d'action      ======>the type of the value is :string
 	the array is end 
 	8 :	this is one array 
-		team_id :		26      ======>the type of the value is :string
-		name :		DIJON      ======>the type of the value is :string
-		alpha_code :		DFCO      ======>the type of the value is :string
-		full_name :		DIJON FCO      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		displayName :		End Bottom Midfield      ======>the type of the value is :string
+		field :		end_op_bot_mid_play_id      ======>the type of the value is :string
+		width :		100      ======>the type of the value is :integer
+		cellFilter :		playerIdToName      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		filter :		this is one array 
+		the array is end 
+		frName :		nom joueur milieu fin      ======>the type of the value is :string
+		chName :		结束底线中区      ======>the type of the value is :string
+		chDesc :		结束底线中区      ======>the type of the value is :string
+		engName :		End Bottom Midfield       ======>the type of the value is :string
+		engDesc :		End Bottom Midfield       ======>the type of the value is :string
+		frDesc :		nom du joueur du milieu le plus bas en fin d'action      ======>the type of the value is :string
 	the array is end 
 	9 :	this is one array 
-		team_id :		27      ======>the type of the value is :string
-		name :		AJACCIOGFC      ======>the type of the value is :string
-		alpha_code :		GFCA      ======>the type of the value is :string
-		full_name :		GFC AJACCIO      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		cellFilter :		toDistance      ======>the type of the value is :string
+		field :		closest_def_dist      ======>the type of the value is :string
+		filterData :		24      ======>the type of the value is :integer
+		width :		100      ======>the type of the value is :integer
+		filter :		this is one array 
+		the array is end 
+		treeAggregationType :		avg      ======>the type of the value is :string
+		displayName :		undefined      ======>the type of the value is :string
+		frName :		distance défenseur proche      ======>the type of the value is :string
+		chName :		      ======>the type of the value is :string
+		chDesc :		      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		engName :		      ======>the type of the value is :string
+		engDesc :		      ======>the type of the value is :string
+		frDesc :		distance par rapport au défenseur le plus proche      ======>the type of the value is :string
 	the array is end 
 	10 :	this is one array 
-		team_id :		28      ======>the type of the value is :string
-		name :		LAVAL      ======>the type of the value is :string
-		alpha_code :		LAVAL      ======>the type of the value is :string
-		full_name :		STADE LAVALLOIS      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		displayName :		Start Position Type Id      ======>the type of the value is :string
+		field :		start_between_op_midfield_defense      ======>the type of the value is :string
+		filterData :		12      ======>the type of the value is :integer
+		width :		100      ======>the type of the value is :integer
+		cellFilter :		positionTypeIdToName      ======>the type of the value is :string
+		filter :		this is one array 
+		the array is end 
+		frName :		identifiant position type départ      ======>the type of the value is :string
+		chName :		开始位置类型序列号      ======>the type of the value is :string
+		chDesc :		开始位置类型序列号      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		engName :		Start Position Type Id       ======>the type of the value is :string
+		engDesc :		Start Position Type Id      ======>the type of the value is :string
+		frDesc :		identifiant de la position interligne entre le milieu et la défense adverse en début d'action      ======>the type of the value is :string
 	the array is end 
 	11 :	this is one array 
-		team_id :		29      ======>the type of the value is :string
-		name :		HAVRE      ======>the type of the value is :string
-		alpha_code :		HAC      ======>the type of the value is :string
-		full_name :		HAVRE AC      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		displayName :		End Position Type Id      ======>the type of the value is :string
+		field :		end_between_op_midfield_defense      ======>the type of the value is :string
+		filterData :		13      ======>the type of the value is :integer
+		width :		100      ======>the type of the value is :integer
+		cellFilter :		positionTypeIdToName      ======>the type of the value is :string
+		filter :		this is one array 
+		the array is end 
+		frName :		identifiant position fin      ======>the type of the value is :string
+		chName :		结束位置类型序列号      ======>the type of the value is :string
+		chDesc :		结束位置类型序列号      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		engName :		End Position Type Id       ======>the type of the value is :string
+		engDesc :		End Position Type Id      ======>the type of the value is :string
+		frDesc :		identifiant de la position interligne entre le milieu et la défense adverse en fin d'action      ======>the type of the value is :string
 	the array is end 
 	12 :	this is one array 
-		team_id :		30      ======>the type of the value is :string
-		name :		NANCY      ======>the type of the value is :string
-		alpha_code :		ASNL      ======>the type of the value is :string
-		full_name :		AS NANCY-LORRAINE      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
+		displayName :		Start Position Type      ======>the type of the value is :string
+		field :		start_between_op_midfield_defense      ======>the type of the value is :string
+		width :		100      ======>the type of the value is :integer
+		cellFilter :		positionTypeIdToName      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		filter :		this is one array 
+		the array is end 
+		frName :		départ type position      ======>the type of the value is :string
+		chName :		开始位置类型      ======>the type of the value is :string
+		chDesc :		开始位置类型      ======>the type of the value is :string
+		engName :		Start Position Type        ======>the type of the value is :string
+		engDesc :		Start Position Type       ======>the type of the value is :string
+		frDesc :		position interligne entre le milieu et la défense adverse en début d'action      ======>the type of the value is :string
 	the array is end 
 	13 :	this is one array 
-		team_id :		31      ======>the type of the value is :string
-		name :		NIORT      ======>the type of the value is :string
-		alpha_code :		NIORT      ======>the type of the value is :string
-		full_name :		CHAMOIS NIORTAIS      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	14 :	this is one array 
-		team_id :		32      ======>the type of the value is :string
-		name :		ORLEANS      ======>the type of the value is :string
-		alpha_code :		USO      ======>the type of the value is :string
-		full_name :		US ORLEANS      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	15 :	this is one array 
-		team_id :		33      ======>the type of the value is :string
-		name :		SOCHAUX      ======>the type of the value is :string
-		alpha_code :		FCSM      ======>the type of the value is :string
-		full_name :		FC SOCHAUX-MONTBELIARD      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	16 :	this is one array 
-		team_id :		34      ======>the type of the value is :string
-		name :		TOURS      ======>the type of the value is :string
-		alpha_code :		TOURS      ======>the type of the value is :string
-		full_name :		TOURS FC      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	17 :	this is one array 
-		team_id :		35      ======>the type of the value is :string
-		name :		TROYES      ======>the type of the value is :string
-		alpha_code :		ESTAC      ======>the type of the value is :string
-		full_name :		ESTAC TROYES      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	18 :	this is one array 
-		team_id :		36      ======>the type of the value is :string
-		name :		VALENCIENNES      ======>the type of the value is :string
-		alpha_code :		VAFC      ======>the type of the value is :string
-		full_name :		VALENCIENNE FC      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	19 :	this is one array 
-		team_id :		37      ======>the type of the value is :string
-		name :		MONACO      ======>the type of the value is :string
-		alpha_code :		ASM      ======>the type of the value is :string
-		full_name :		AS MONACO      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	20 :	this is one array 
-		team_id :		38      ======>the type of the value is :string
-		name :		METZ      ======>the type of the value is :string
-		alpha_code :		FCM      ======>the type of the value is :string
-		full_name :		FC METZ      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	21 :	this is one array 
-		team_id :		39      ======>the type of the value is :string
-		name :		BASTIA      ======>the type of the value is :string
-		alpha_code :		SCB      ======>the type of the value is :string
-		full_name :		SC BASTIA      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	22 :	this is one array 
-		team_id :		40      ======>the type of the value is :string
-		name :		BORDEAUX      ======>the type of the value is :string
-		alpha_code :		FCGB      ======>the type of the value is :string
-		full_name :		GIRONDINS DE BORDEAUX      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	23 :	this is one array 
-		team_id :		41      ======>the type of the value is :string
-		name :		CAEN      ======>the type of the value is :string
-		alpha_code :		SMC      ======>the type of the value is :string
-		full_name :		SM CAEN      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	24 :	this is one array 
-		team_id :		42      ======>the type of the value is :string
-		name :		EVIAN      ======>the type of the value is :string
-		alpha_code :		ETG      ======>the type of the value is :string
-		full_name :		EVIAN THONON GAILLARD FC      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	25 :	this is one array 
-		team_id :		43      ======>the type of the value is :string
-		name :		GUINGAMP      ======>the type of the value is :string
-		alpha_code :		EAG      ======>the type of the value is :string
-		full_name :		EA GUINGAMP      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	26 :	this is one array 
-		team_id :		44      ======>the type of the value is :string
-		name :		LENS      ======>the type of the value is :string
-		alpha_code :		RCL      ======>the type of the value is :string
-		full_name :		RC LENS      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	27 :	this is one array 
-		team_id :		45      ======>the type of the value is :string
-		name :		LILLE      ======>the type of the value is :string
-		alpha_code :		LOSC      ======>the type of the value is :string
-		full_name :		LOSC LILLE      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	28 :	this is one array 
-		team_id :		46      ======>the type of the value is :string
-		name :		LORIENT      ======>the type of the value is :string
-		alpha_code :		FCL      ======>the type of the value is :string
-		full_name :		FC LORIENT      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	29 :	this is one array 
-		team_id :		47      ======>the type of the value is :string
-		name :		LYON      ======>the type of the value is :string
-		alpha_code :		OL      ======>the type of the value is :string
-		full_name :		OLYMPIQUE LYONNAIS      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	30 :	this is one array 
-		team_id :		48      ======>the type of the value is :string
-		name :		MARSEILLE      ======>the type of the value is :string
-		alpha_code :		OM      ======>the type of the value is :string
-		full_name :		OLYMPIQUE MARSEILLE      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	31 :	this is one array 
-		team_id :		49      ======>the type of the value is :string
-		name :		MONTPELLIER      ======>the type of the value is :string
-		alpha_code :		MHSC      ======>the type of the value is :string
-		full_name :		MONTPELLIER-HERAULT SPORTS CLUB      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	32 :	this is one array 
-		team_id :		50      ======>the type of the value is :string
-		name :		NANTES      ======>the type of the value is :string
-		alpha_code :		FCN      ======>the type of the value is :string
-		full_name :		FC NANTES      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	33 :	this is one array 
-		team_id :		51      ======>the type of the value is :string
-		name :		NICE      ======>the type of the value is :string
-		alpha_code :		OGCN      ======>the type of the value is :string
-		full_name :		OGC NICE      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	34 :	this is one array 
-		team_id :		52      ======>the type of the value is :string
-		name :		PARIS SG      ======>the type of the value is :string
-		alpha_code :		PSG      ======>the type of the value is :string
-		full_name :		PARIS SAINT-GERMAIN      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	35 :	this is one array 
-		team_id :		53      ======>the type of the value is :string
-		name :		REIMS      ======>the type of the value is :string
-		alpha_code :		SDR      ======>the type of the value is :string
-		full_name :		STADE DE REIMS      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	36 :	this is one array 
-		team_id :		54      ======>the type of the value is :string
-		name :		RENNES      ======>the type of the value is :string
-		alpha_code :		SRFC      ======>the type of the value is :string
-		full_name :		STADE RENNAIS FC      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	37 :	this is one array 
-		team_id :		55      ======>the type of the value is :string
-		name :		SAINT-ETIENNE      ======>the type of the value is :string
-		alpha_code :		ASSE      ======>the type of the value is :string
-		full_name :		AS SAINT-ETIENNE      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	38 :	this is one array 
-		team_id :		56      ======>the type of the value is :string
-		name :		TOULOUSE      ======>the type of the value is :string
-		alpha_code :		TFC      ======>the type of the value is :string
-		full_name :		TOULOUSE FC      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	39 :	this is one array 
-		team_id :		57      ======>the type of the value is :string
-		name :		PORTO      ======>the type of the value is :string
-		alpha_code :		FCP      ======>the type of the value is :string
-		full_name :		FC PORTO      ======>the type of the value is :string
-		country :		PORTUGAL      ======>the type of the value is :string
-		country_id :		620      ======>the type of the value is :string
-	the array is end 
-	40 :	this is one array 
-		team_id :		58      ======>the type of the value is :string
-		name :		FRANCE      ======>the type of the value is :string
-		alpha_code :		FRA      ======>the type of the value is :string
-		full_name :		EQUIPE DE FRANCE      ======>the type of the value is :string
-		country :		FRANCE      ======>the type of the value is :string
-		country_id :		250      ======>the type of the value is :string
-	the array is end 
-	41 :	this is one array 
-		team_id :		59      ======>the type of the value is :string
-		name :		GERMANY      ======>the type of the value is :string
-		alpha_code :		GER      ======>the type of the value is :string
-		full_name :		DIE MANNSCHAFT      ======>the type of the value is :string
-		country :		GERMANY      ======>the type of the value is :string
-		country_id :		276      ======>the type of the value is :string
-	the array is end 
-	42 :	this is one array 
-		team_id :		61      ======>the type of the value is :string
-		name :		DYNAMO KIEV      ======>the type of the value is :string
-		alpha_code :		FCDK      ======>the type of the value is :string
-		full_name :		FC DYNAMO KYIV      ======>the type of the value is :string
-		country :		UKRAINE      ======>the type of the value is :string
-		country_id :		804      ======>the type of the value is :string
-	the array is end 
-	43 :	this is one array 
-		team_id :		62      ======>the type of the value is :string
-		name :		MACCABI TEL AVIV      ======>the type of the value is :string
-		alpha_code :		MTAFC      ======>the type of the value is :string
-		full_name :		MACCABI TEL AVIV FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ISRAEL      ======>the type of the value is :string
-		country_id :		376      ======>the type of the value is :string
-	the array is end 
-	44 :	this is one array 
-		team_id :		63      ======>the type of the value is :string
-		name :		CHELSEA      ======>the type of the value is :string
-		alpha_code :		CFC      ======>the type of the value is :string
-		full_name :		CHELSEA FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	45 :	this is one array 
-		team_id :		64      ======>the type of the value is :string
-		name :		MANCHESTER UNITED      ======>the type of the value is :string
-		alpha_code :		MUFC      ======>the type of the value is :string
-		full_name :		MANCHESTER UNITED FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	46 :	this is one array 
-		team_id :		65      ======>the type of the value is :string
-		name :		MANCHESTER CITY      ======>the type of the value is :string
-		alpha_code :		MCFC      ======>the type of the value is :string
-		full_name :		MANCHESTER CITY FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	47 :	this is one array 
-		team_id :		66      ======>the type of the value is :string
-		name :		EVERTON      ======>the type of the value is :string
-		alpha_code :		EFC      ======>the type of the value is :string
-		full_name :		EVERTON FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	48 :	this is one array 
-		team_id :		67      ======>the type of the value is :string
-		name :		ARSENAL      ======>the type of the value is :string
-		alpha_code :		AFC      ======>the type of the value is :string
-		full_name :		ARSENAL FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	49 :	this is one array 
-		team_id :		68      ======>the type of the value is :string
-		name :		CRYSTAL PALACE      ======>the type of the value is :string
-		alpha_code :		CPFC      ======>the type of the value is :string
-		full_name :		CRYSTAL PALACE FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	50 :	this is one array 
-		team_id :		72      ======>the type of the value is :string
-		name :		FC BARCELONA      ======>the type of the value is :string
-		alpha_code :		FCB      ======>the type of the value is :string
-		full_name :		FUTBOL CLUB BARCELONA      ======>the type of the value is :string
-		country :		SPAIN      ======>the type of the value is :string
-		country_id :		724      ======>the type of the value is :string
-	the array is end 
-	51 :	this is one array 
-		team_id :		73      ======>the type of the value is :string
-		name :		BAYERN MUNICH      ======>the type of the value is :string
-		alpha_code :		FCBM      ======>the type of the value is :string
-		full_name :		FUSSBALL-CLUB BAYERN MUNCHEN      ======>the type of the value is :string
-		country :		GERMANY      ======>the type of the value is :string
-		country_id :		276      ======>the type of the value is :string
-	the array is end 
-	52 :	this is one array 
-		team_id :		74      ======>the type of the value is :string
-		name :		REAL MADRID      ======>the type of the value is :string
-		alpha_code :		RMA      ======>the type of the value is :string
-		full_name :		REAL MADRID CLUB DE FUTBOL      ======>the type of the value is :string
-		country :		SPAIN      ======>the type of the value is :string
-		country_id :		724      ======>the type of the value is :string
-	the array is end 
-	53 :	this is one array 
-		team_id :		75      ======>the type of the value is :string
-		name :		ATHLETICO MADRID      ======>the type of the value is :string
-		alpha_code :		ATM      ======>the type of the value is :string
-		full_name :		CLUB ATHLETICO DE MADRID      ======>the type of the value is :string
-		country :		SPAIN      ======>the type of the value is :string
-		country_id :		724      ======>the type of the value is :string
-	the array is end 
-	54 :	this is one array 
-		team_id :		76      ======>the type of the value is :string
-		name :		JUVENTUS      ======>the type of the value is :string
-		alpha_code :		JUVE      ======>the type of the value is :string
-		full_name :		JUVENTUS FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ITALY      ======>the type of the value is :string
-		country_id :		380      ======>the type of the value is :string
-	the array is end 
-	55 :	this is one array 
-		team_id :		77      ======>the type of the value is :string
-		name :		VFL WOLFSBURG      ======>the type of the value is :string
-		alpha_code :		VFL      ======>the type of the value is :string
-		full_name :		VEREIN FUR LEIBESUBUNGEN WOLFSBURG      ======>the type of the value is :string
-		country :		GERMANY      ======>the type of the value is :string
-		country_id :		276      ======>the type of the value is :string
-	the array is end 
-	56 :	this is one array 
-		team_id :		78      ======>the type of the value is :string
-		name :		LIVERPOOL      ======>the type of the value is :string
-		alpha_code :		LFC      ======>the type of the value is :string
-		full_name :		LIVERPOOL FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	57 :	this is one array 
-		team_id :		79      ======>the type of the value is :string
-		name :		SL BENFICA      ======>the type of the value is :string
-		alpha_code :		SLB      ======>the type of the value is :string
-		full_name :		SPORT LISBOA E BENFICA      ======>the type of the value is :string
-		country :		PORTUGAL      ======>the type of the value is :string
-		country_id :		620      ======>the type of the value is :string
-	the array is end 
-	58 :	this is one array 
-		team_id :		80      ======>the type of the value is :string
-		name :		CAMEROON      ======>the type of the value is :string
-		alpha_code :		CMR      ======>the type of the value is :string
-		full_name :		EQUIPE DU CAMEROUN      ======>the type of the value is :string
-		country :		CAMEROON      ======>the type of the value is :string
-		country_id :		120      ======>the type of the value is :string
-	the array is end 
-	59 :	this is one array 
-		team_id :		81      ======>the type of the value is :string
-		name :		SCOTLAND      ======>the type of the value is :string
-		alpha_code :		SCO      ======>the type of the value is :string
-		full_name :		SCOTLAND NATIONAL TEAM      ======>the type of the value is :string
-		country :		SCOTLAND      ======>the type of the value is :string
-		country_id :		897      ======>the type of the value is :string
-	the array is end 
-	60 :	this is one array 
-		team_id :		82      ======>the type of the value is :string
-		name :		WALSALL      ======>the type of the value is :string
-		alpha_code :		WFC      ======>the type of the value is :string
-		full_name :		WALSALL FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	61 :	this is one array 
-		team_id :		83      ======>the type of the value is :string
-		name :		BARNSLEY      ======>the type of the value is :string
-		alpha_code :		BFC      ======>the type of the value is :string
-		full_name :		BARNSLEY FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	62 :	this is one array 
-		team_id :		84      ======>the type of the value is :string
-		name :		ROMANIA      ======>the type of the value is :string
-		alpha_code :		ROU      ======>the type of the value is :string
-		full_name :		ECHIPA NATIONALA DE FOTBAL A ROMANIEI      ======>the type of the value is :string
-		country :		ROMANIA      ======>the type of the value is :string
-		country_id :		642      ======>the type of the value is :string
-	the array is end 
-	63 :	this is one array 
-		team_id :		85      ======>the type of the value is :string
-		name :		ALBANIA      ======>the type of the value is :string
-		alpha_code :		ALB      ======>the type of the value is :string
-		full_name :		KOMBETARJA SHQIPTARE E FUTBOLLIT      ======>the type of the value is :string
-		country :		ALBANIA      ======>the type of the value is :string
-		country_id :		8      ======>the type of the value is :string
-	the array is end 
-	64 :	this is one array 
-		team_id :		86      ======>the type of the value is :string
-		name :		SWITZERLAND      ======>the type of the value is :string
-		alpha_code :		SUI      ======>the type of the value is :string
-		full_name :		SWITZERLAND NATIONAL FOOTBALL TEAM      ======>the type of the value is :string
-		country :		SWITZERLAND      ======>the type of the value is :string
-		country_id :		756      ======>the type of the value is :string
-	the array is end 
-	65 :	this is one array 
-		team_id :		87      ======>the type of the value is :string
-		name :		MILLWALL      ======>the type of the value is :string
-		alpha_code :		MIL      ======>the type of the value is :string
-		full_name :		MILLWALL FOOTBALL CLUB      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	66 :	this is one array 
-		team_id :		90      ======>the type of the value is :string
-		name :		IRELAND      ======>the type of the value is :string
-		alpha_code :		IRL      ======>the type of the value is :string
-		full_name :		REPUBLIC OF IRELAND NATIONAL FOOTBALL TEAM      ======>the type of the value is :string
-		country :		IRELAND      ======>the type of the value is :string
-		country_id :		372      ======>the type of the value is :string
-	the array is end 
-	67 :	this is one array 
-		team_id :		91      ======>the type of the value is :string
-		name :		ICELAND      ======>the type of the value is :string
-		alpha_code :		ISL      ======>the type of the value is :string
-		full_name :		ICELAND NATIONAL FOOTBALL TEAM      ======>the type of the value is :string
-		country :		ICELAND      ======>the type of the value is :string
-		country_id :		352      ======>the type of the value is :string
-	the array is end 
-	68 :	this is one array 
-		team_id :		92      ======>the type of the value is :string
-		name :		ENGLAND      ======>the type of the value is :string
-		alpha_code :		ENG      ======>the type of the value is :string
-		full_name :		ENGLAND NATIONAL FOOTBALL TEAM      ======>the type of the value is :string
-		country :		ENGLAND      ======>the type of the value is :string
-		country_id :		895      ======>the type of the value is :string
-	the array is end 
-	69 :	this is one array 
-		team_id :		93      ======>the type of the value is :string
-		name :		PORTUGAL      ======>the type of the value is :string
-		alpha_code :		POR      ======>the type of the value is :string
-		full_name :		SELECAO PORTUGUESA DE FUTEBOL      ======>the type of the value is :string
-		country :		PORTUGAL      ======>the type of the value is :string
-		country_id :		620      ======>the type of the value is :string
-	the array is end 
-	70 :	this is one array 
-		team_id :		94      ======>the type of the value is :string
-		name :		WALES      ======>the type of the value is :string
-		alpha_code :		WAL      ======>the type of the value is :string
-		full_name :		WALES NATIONAL FOOTBALL TEAM      ======>the type of the value is :string
-		country :		WALES      ======>the type of the value is :string
-		country_id :		896      ======>the type of the value is :string
+		displayName :		End Position Type      ======>the type of the value is :string
+		field :		end_between_op_midfield_defense      ======>the type of the value is :string
+		width :		100      ======>the type of the value is :integer
+		cellFilter :		positionTypeIdToName      ======>the type of the value is :string
+		filterCellFiltered :		1      ======>the type of the value is :boolean
+		sortCellFiltered :		1      ======>the type of the value is :boolean
+		filter :		this is one array 
+		the array is end 
+		frName :		type position fin      ======>the type of the value is :string
+		chName :		结束位置类型      ======>the type of the value is :string
+		chDesc :		结束位置类型      ======>the type of the value is :string
+		engName :		End Position Type       ======>the type of the value is :string
+		engDesc :		End Position Type      ======>the type of the value is :string
+		frDesc :		position interligne entre le milieu et la défense adverse en fin d'action      ======>the type of the value is :string
 	the array is end 
 the array is end 
-this is end of object $response 
+this is end of object $json test 

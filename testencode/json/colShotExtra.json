@@ -1,105 +1,83 @@
 [{
-        displayName: 'Start Def Id',
-        field: 'start_closest_def_id',
-        filterData: 16,
-        width: 100,
-        cellClass: sequenceCellClass,
-        filter: {
-            condition: customFilterCondition
-        },
-        frName: 'identifiant défenseur proche',
-        chName: '开始定义序号',
-        chDesc: '开始定义序号',
-        engName: 'Start Def Id ',
-        engDesc: 'Start Def Id',
-        frDesc: 'identifiant du défenseur le plus proche en début d\'action'
-    },{
-        displayName: 'Start Def',
-        field: 'start_closest_def_id',
-        cellFilter: 'playerIdToName',
-        filterCellFiltered: true,
-        sortCellFiltered: true,
-        width: 100,
-        cellClass: sequenceCellClass,
-        filter: {
-            condition: customFilterCondition
-        },
-        frName: 'nom défenseur proche',
-        chName: '开始定义',
-        chDesc: '开始定义',
-        engName: 'Start Def  ',
-        engDesc: 'Start Def ',
-        frDesc: 'nom du défenseur le plus proche en début de l\'action'
-    },{
-        displayName: 'Start Def Dist',
-        cellFilter: 'toDistance',
-        field: 'start_closest_def_dist',
-        filterData: 24,
-        width: 100,
-        cellClass: sequenceCellClass,
-        filter: {
-            condition: customFilterCondition
-        },
-        treeAggregationType: 'avg',
-        customTreeAggregationFinalizerFn: rowValueAggregation,
-        frName: 'distance défenseur proche',
-        chName: '开始定义距离',
-        chDesc: '开始定义距离',
-        filterCellFiltered: true,
-        sortCellFiltered: true,
-        engName: 'Start Def Dist ',
-        engDesc: 'Start Def Dist',
-        frDesc: 'distance par rapport au défenseur le plus proche en début de l\'action'
-    },{
-        displayName: '#Start Covering Def.',
-        field: 'start_n_covering_def',
-        filterData: 26,
-        width: 100,
-        cellClass: sequenceCellClass,
-        filter: {
-            condition: customFilterCondition
-        },
-        treeAggregationType: 'avg',
-        customTreeAggregationFinalizerFn: numberAggreg,
-        frName: 'nombre défenseurs but adverse',
-        chName: '开始覆盖定义',
-        chDesc: '开始覆盖定义',
-        engName: '#Start Covering Def.',
-        engDesc: '#Start Covering Def.',
-        frDesc: 'nombre des défenseurs entre le joueur et le but adverse en début d\'action'
-    },{
-        displayName: '#Passes Before',
-        field: 'n_pass_begin_seq',
-        width: 100,
-        cellClass: sequenceCellClass,
-        filter: {
-            condition: customFilterCondition
-        },
-        treeAggregationType: 'avg',
-        customTreeAggregationFinalizerFn: numberAggreg,
-        frName: 'nombre passes précédentes',
-        chName: '过人之前',
-        chDesc: '过人之前',
-        engName: '#Passes Before',
-        engDesc: '#Passes Before',
-        frDesc: 'nombre de passes précédentes effectuées'
-    },{
-        displayName: 'Time Before',
-        field: 'time_begin_seq_sec',
-        cellFilter: 'toSecond',
-        width: 100,
-        cellClass: sequenceCellClass,
-        filter: {
-            condition: customFilterCondition
-        },
-        treeAggregationType: 'avg',
-        customTreeAggregationFinalizerFn: rowValueAggregation,
-        frName: 'durée action',
-        chName: '时间之前',
-        chDesc: '时间之前',
-        filterCellFiltered: true,
-        sortCellFiltered: true,
-        engName: 'Time Before',
-        engDesc: 'Time Before',
-        frDesc: 'durée depuis le début de l\'action'
-    } ]
+    "displayName": "Start Def Id",
+    "field": "start_closest_def_id",
+    "filterData": 16,
+    "width": 100,
+    "filter": {},
+    "frName": "identifiant défenseur proche",
+    "chName": "开始定义序号",
+    "chDesc": "开始定义序号",
+    "engName": "Start Def Id ",
+    "engDesc": "Start Def Id",
+    "frDesc": "identifiant du défenseur le plus proche en début d'action"
+}, {
+    "displayName": "Start Def",
+    "field": "start_closest_def_id",
+    "cellFilter": "playerIdToName",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "width": 100,
+    "filter": {},
+    "frName": "nom défenseur proche",
+    "chName": "开始定义",
+    "chDesc": "开始定义",
+    "engName": "Start Def  ",
+    "engDesc": "Start Def ",
+    "frDesc": "nom du défenseur le plus proche en début de l'action"
+}, {
+    "displayName": "Start Def Dist",
+    "cellFilter": "toDistance",
+    "field": "start_closest_def_dist",
+    "filterData": 24,
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg",
+    "frName": "distance défenseur proche",
+    "chName": "开始定义距离",
+    "chDesc": "开始定义距离",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "engName": "Start Def Dist ",
+    "engDesc": "Start Def Dist",
+    "frDesc": "distance par rapport au défenseur le plus proche en début de l'action"
+}, {
+    "displayName": "#Start Covering Def.",
+    "field": "start_n_covering_def",
+    "filterData": 26,
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg",
+    "frName": "nombre défenseurs but adverse",
+    "chName": "开始覆盖定义",
+    "chDesc": "开始覆盖定义",
+    "engName": "#Start Covering Def.",
+    "engDesc": "#Start Covering Def.",
+    "frDesc": "nombre des défenseurs entre le joueur et le but adverse en début d'action"
+}, {
+    "displayName": "#Passes Before",
+    "field": "n_pass_begin_seq",
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg",
+    "frName": "nombre passes précédentes",
+    "chName": "过人之前",
+    "chDesc": "过人之前",
+    "engName": "#Passes Before",
+    "engDesc": "#Passes Before",
+    "frDesc": "nombre de passes précédentes effectuées"
+}, {
+    "displayName": "Time Before",
+    "field": "time_begin_seq_sec",
+    "cellFilter": "toSecond",
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg",
+    "frName": "durée action",
+    "chName": "时间之前",
+    "chDesc": "时间之前",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "engName": "Time Before",
+    "engDesc": "Time Before",
+    "frDesc": "durée depuis le début de l'action"
+}]
