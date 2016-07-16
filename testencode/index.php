@@ -7,5 +7,4 @@ $insertConnection = getDbConnection();
 
 
 
-
- ?>?>
+ ?>
