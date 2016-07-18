@@ -1,19 +1,19 @@
 function : getcolumnsdef
-		var allColumnsDef = {}; 
-		var colsSeqCore = in file 
-		var colsSeqExtra = in file
-		var colsEventCoreExtra = in file 
-		
-		var colsEventCore = colsEventCoreExtra.concat(colsSeqCore);
-		
-		var colShotExtra = in file
-		var colCrossExtra = in file
-		var colBallDriveExtra = in file
-		var colPassExtra = in file
-		var colsTackleExtraFromSeqCore = in file
-		var colsHeaderExtraFromSeqCore = in file
-		var colsFoulAll = in file 
-		
+		var allColumnsDef = {};
+		var colsSeqCore = in file  // 0,6,7,3,2,4,1,5
+		var colsSeqExtra = in file // 0
+		var colsEventCoreExtra = in file //3,2,4,1,5
+
+		var colsEventCore = colsEventCoreExtra.concat(colsSeqCore); //3,2,4,1,5
+
+		var colShotExtra = in file //3
+		var colCrossExtra = in file //4
+		var colBallDriveExtra = in file //2
+		var colPassExtra = in file //1,5
+		var colsTackleExtraFromSeqCore = in file //6
+		var colsHeaderExtraFromSeqCore = in file //7
+		var colsFoulAll = in file //8
+	{
 		//update display name ,should be translated in php and save to database.
 		for (var variable in colsSeqCore) {
 			getDisplayName(colsSeqCore[variable]);
@@ -45,7 +45,9 @@ function : getcolumnsdef
 		for (var variable in colsFoulAll) {
 			getDisplayName(colsFoulAll[variable]);
 		}
+}
 		//unite the data.
+
 		allColumnsDef[eLiveSubWinType.sequences] = colsSeqCore.concat(colsSeqExtra);
 		allColumnsDef[eLiveSubWinType.shots] = colsEventCore.concat(colShotExtra);
 		allColumnsDef[eLiveSubWinType.ballDrives] = colsEventCore.concat(colBallDriveExtra);
@@ -57,18 +59,18 @@ function : getcolumnsdef
 		allColumnsDef[eLiveSubWinType.fouls] = colsFoulAll;
 
 		return allColumnsDef;
-		
-		
-		
-		
+
+
+
+
 function : getStatsColumnsDef  + means some file with suffix Stats
 		var allColumnsDef = {};
-		var colsEventCore = in file  +
-		var colShotExtra = in file  +
-		var colCrossExtra = in file +
-		var colBallDriveExtra =  in file +
-		var colPassExtra = in file +
-		
+		var colsEventCore = in file  + // 3,2,4
+		var colShotExtra = in file  + // 3
+		var colCrossExtra = in file + //4
+		var colBallDriveExtra =  in file + //2
+		var colPassExtra = in file + //1
+
 		for (var variable in colsEventCore) {
 			getDisplayName(colsEventCore[variable]);
 		}
@@ -91,13 +93,13 @@ function : getStatsColumnsDef  + means some file with suffix Stats
 		allColumnsDef[eLiveSubWinType.passes] = allColumnsDef[eLiveSubWinType.crosses].concat(colPassExtra);
 
 		return allColumnsDef;
-		
-function :  getStatsBdColumnsDef 
+
+function :  getStatsBdColumnsDef
 		var allColumnsDef = {};
-		var colsPlayerBd = in file 
+		var colsPlayerBd = in file
 		var colsTeamBd = in file
-		
-		
+
+
 		for (var variable in colsPlayerBd) {
 			getDisplayName(colsPlayerBd[variable]);
 		}
@@ -110,6 +112,6 @@ function :  getStatsBdColumnsDef
 		allColumnsDef[eStatSubWinType.teamBd] = colsTeamBd;
 
 		return allColumnsDef;
-		
-		
+
+
 function : getDisplayName/capitalizeFirstLetter
