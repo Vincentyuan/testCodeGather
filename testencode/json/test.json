@@ -1,0 +1,29 @@
+[{
+    "cellFilter": "toDistance",
+    "field": "dist_gained_m",
+    "width": 100,
+    "filter": {},
+    "treeAggregationType": "avg",
+    "displayName": "Distance Gained",
+    "frName": "distance gagnée",
+    "chName": "推进距离",
+    "chDesc": "推进距离",
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "engName": "Distance Gained",
+    "engDesc": "Distance Gained",
+    "frDesc": "distance gagnée"
+}, {
+  "displayName": "#End Covering Def.",
+  "field": "end_n_covering_def",
+  "filterData": 27,
+  "width": 100,
+  "filter": {},
+  "treeAggregationType": "avg",
+  "frName": "fin couverture défenseur",
+  "chName": "结束覆盖定义",
+  "chDesc": "结束覆盖定义",
+  "engName": "#End Covering Def.",
+  "engDesc": "#End Covering Def.",
+  "frDesc": "nombre des défenseurs entre le joueur et le but adverse en fin d'action"
+}]
