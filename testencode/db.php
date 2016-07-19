@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/output.php';
+set_time_limit(0);
   function getDbConnection(){
 
        $servername = "db89209.sql-pro.online.net";//"db327705-footo.sql-pro.online.net";//"localhost";//
@@ -7,9 +8,9 @@ require_once __DIR__ . '/output.php';
        $password = "footodev1";
        $dbname = "db327705_testdb";
        $dsn = "mysql:dbname=$dbname;host=$servername;";//"mysql:dbname=$username;host=$servername;";//"mysql:dbname=footo1;host=$servername;"; //
-			
 
-		
+
+
 //       echo "Start Connection";
 //       echo "mysql:dbname=$username;host=$servername;";
 //         echo "dsn is : $dsn";
@@ -46,20 +47,33 @@ require_once __DIR__ . '/output.php';
 			echo "connection failed:".$e->getMessage();
 			return null;
 		}
-		
-		
+
+
    }
 
-function excuteSqlOriginal($sql){
+function excuteSqlOriginal($sql,$ifReturn){
 
 	//   $query = "select * from teams";
 
 	$connection = getDbConnection();
 	$statement = $connection->prepare($sql);
 	$statement->execute();
+  // $output=$statement->fetchAll(PDO::FETCH_ASSOC);
 
-	$output=$statement->fetchAll(PDO::FETCH_ASSOC);
-	return $output;
+  // $connection = newConnection();
+  // $output = $connection->query($query);
+
+  // $GLOBALS['outputObj']->setObject($output,"output for last insert id","  get the data from database");
+  // $GLOBALS['outputObj']->output();
+  if ($ifReturn) {
+  $output=$statement->fetchAll(PDO::FETCH_ASSOC);
+    //mysql_close();
+    return $output;
+  }else {
+    //mysql_close();
+    return null;
+  }
+
 
 }
 //   $query = "select * from teams";

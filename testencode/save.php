@@ -1,17 +1,23 @@
 <?php
 require_once __DIR__ . '/output.php';
 require_once __DIR__ . '/parserJson.php';
+require_once __DIR__ . '/db.php';
+
+set_time_limit(0);
+$outputObj = new phpOutput();
+// $GLOBALS['outputObj']->setObject($newid,"output for newids","  get the data from database");
+// $GLOBALS['outputObj']->output();
 
 $columnsDef =["colsSeqCore","colsSeqExtra","colsEventCoreExtra","colShotExtra",
 "colCrossExtra","colBallDriveExtra","colPassExtra","colsTackleExtraFromSeqCore","colsHeaderExtraFromSeqCore","colsFoulAll"] ;
 $statsColumnsDef =["colBallDriveExtraStats","colCrossExtraStats","colPassExtraStats","colsEventCoreStats","colShotExtraStats"] ;
 $statsBdColumnsDef = ["colsPlayerBd","colsTeamBd"];
 
-// saveColumnsDef($columnsDef);
-// saveStatsColumnsDef($statsColumnsDef);
-// saveBdColumnsDef($statsBdColumnsDef);
+saveColumnsDef($columnsDef);
+saveStatsColumnsDef($statsColumnsDef);
+saveBdColumnsDef($statsBdColumnsDef);
 
-saveTest("test");
+// saveTest("test");
 
 function saveColumnsDef($columnsDef){
   for($i=0;$i<count($columnsDef);$i++){
@@ -55,12 +61,13 @@ function saveTest($json){
 }
 
 function save($files){
+
   $ids = [];
   for ($i=0; $i < count($files) ; $i++) {
 
     $newid = saveColumnsData($files[$i]);
 
-    array_push($ids,newid);
+    array_push($ids,$newid);
   }
 
   return $ids;
@@ -72,20 +79,38 @@ function save($files){
 function saveColumnsData($json_obj){
 
   //first save ,then run function get id to return.
-
-  $sql = generateInsertSQL($json_obj);
+  $cloumnsData = formatObj($json_obj);
+  $sql = generateInsertSQL($cloumnsData);
 
   //$output_cols_id=getNewId($files.displayName,$files.field);
 
+  // $output = new phpOutput();
+  // $output->setObject($sql,"sql","sql sentence");
+  // $output->output();
+
   excuteSQL($sql,false);
 
+  $newid = getNewId($cloumnsData['displayName'],$cloumnsData['field'],$cloumnsData['engName']);
+  // $newid = getLastInsertId();
 
-
-  return getNewId($json_obj->dislayName,$json_obj->field);
+  return $newid;
 }
 
-function getNewId($displayName,$field){
-  $getIdSql= generateGetidSql($displayName,$field);
+function getNewId($displayName,$field,$engName){
+  $getIdSql= generateGetidSql($displayName,$field,$engName);
+  return $getIdSql;
+}
+
+function getLastInsertId(){
+
+  $sql = 'SELECT LAST_INSERT_ID();';
+
+  $newid = excuteSQL($sql,true);
+
+  //return $newid;
+  // $GLOBALS['outputObj']->setObject(mysql_insert_id(),"output for last insert id","  get the data from database");
+  // $GLOBALS['outputObj']->output();
+  return mysql_insert_id() ;
 }
 
 
@@ -95,14 +120,17 @@ function updateWinOutPutCols($output_cols_ids,$jsonName,$output_bd_type_id){
 //$jsonName --- > win_id according to the final function write the logical.
 
 
-  $win_id = getWinIdByJsonName($jsonName);
+  $win_ids = getWinIdByJsonName($jsonName);
   //according to the file name , determine the win_id.
 
 
   for($i = 0;$i < count($output_cols_ids);$i++){
 
-    $sql = generateInsertWinOutputCols($output_cols_ids,$win_id,$output_bd_type_id);
-    excuteSQL($sql,false);
+    for ($j=0; $j < count($win_ids); $j++) {
+      $sql = generateInsertWinOutputCols($output_cols_ids[$i],$win_ids[$j],$output_bd_type_id);
+      excuteSQL($sql,false);
+    }
+
   }
 
 
@@ -112,27 +140,45 @@ function updateWinOutPutCols($output_cols_ids,$jsonName,$output_bd_type_id){
 
 function generateInsertSQL($columnsData){
 
+
   //database should also changed , filtercellfiltered and sortCellFiltered can be removed。
-  $sql = "insert into output_cols ('displayName','fieldName',
-'filterData','cellFilter','filterCellFiltered','sortCellFiltered',
-'width','frName','engName','engDesc','frDesc')VALUES ($columnsData->displayName,$columnsData->field,
-$columnsData->filterData,$columnsData->cellFilter,$columnsData->filterCellFiltered,$columnsData->sortCellFiltered,
-$columnsData->width,$columnsData->frName,$columnsData->engName,$columnsData->engDesc,
-$columnsData->frDesc)";
+  // $keys = ['displayName',"field","filterData","cellFilter","filterCellFiltered","sortCellFiltered","width","frName","engName","engDesc","frDesc"];
+  //
+  // $output = new phpOutput();
+  // $output->setObject($columnsData,"columnsData","get the property");
+  // $output->output();
+
+  $sql = 'insert into output_cols (displayName,fieldName,
+    filterData,cellFilter,filterCellFiltered,sortCellFiltered,
+    width,frName,engName,engDesc,frDesc)VALUES ("'.
+    $columnsData['displayName'].'","'.
+    $columnsData['field'].'","'.
+    $columnsData['filterData'].'","'.
+    $columnsData['cellFilter'].'","'.
+    $columnsData['filterCellFiltered'].'","'.
+    $columnsData['sortCellFiltered'].'","'.
+    $columnsData['width'].'","'.
+    $columnsData['frName'].'","'.
+    $columnsData['engName'].'","'.
+    $columnsData['engDesc'].'","'.
+    $columnsData['frDesc'].'")';
 
 
   return $sql;
 }
 
 function generateInsertWinOutputCols($col_id,$win_id,$output_bd_type_id){
-  return "insert into win_output_cols (col_id,win_id,
-output_bd_type_id) VALUES ($col_id,$win_id,$output_bd_type_id)";
+  return 'insert into win_output_cols (col_id,win_id,
+output_bd_type_id) VALUES ("'.$col_id.'","'.$win_id.'","'.$output_bd_type_id.'")';
 
 }
 
-function generateGetidSql($displayName,$field){
-  $sql = "select col_id from output_cols where displayName=$displayName and fieldName = $field";
-  return excuteSQL($sql,ture);
+function generateGetidSql($displayName,$field,$engName){
+  $sql = 'select col_id from output_cols where displayName="'.$displayName.'"and fieldName ="'.$field.'" and engName ="'.$engName.'"';
+
+  $newid = excuteSQL($sql,true);
+
+  return $newid;
 
 }
 // if insert without return values
@@ -140,13 +186,40 @@ function excuteSQL($sql,$ifReturn){//if has return value ,ture
   //$connection = getDbConnection();
 
 
-  $output = excuteSqlOriginal($sql);
+  $output = excuteSqlOriginal($sql,$ifReturn);
+
+  // $GLOBALS['outputObj']->setObject($output,"output for output","  get the data from database");
+  // $GLOBALS['outputObj']->output();
 
   if($ifReturn){// return col_id
-    return $output['col_id'];
+
+    if($output === NULL){
+      return "";
+    }else {
+
+      return $output[0]['col_id'];
+    }
+
   }else{ //used insert
-    return ;
+    return "";
   }
+
+}
+
+function formatObj($obj){
+  // ($columnsData->displayName,$columnsData->field,
+  // $columnsData->filterData,$columnsData->cellFilter,$columnsData->filterCellFiltered,$columnsData->sortCellFiltered,
+  // $columnsData->width,$columnsData->frName,$columnsData->engName,$columnsData->engDesc,
+  // $columnsData->frDesc)
+  $keys = ['displayName',"field","filterData","cellFilter","filterCellFiltered","sortCellFiltered","width","frName","engName","engDesc","frDesc"];
+
+  for ($i=0; $i < count($keys); $i++) {
+    if (!isset($obj[$keys[$i]])) {
+        $obj[$keys[$i]] = "";
+    }
+  }
+
+  return $obj;
 
 }
 
