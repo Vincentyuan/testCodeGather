@@ -1,3 +1,8 @@
+reset TABLES
+
+Truncate table output_cols;
+Truncate table win_output_cols;
+
 function : getcolumnsdef
 		var allColumnsDef = {};
 		var colsSeqCore = in file  // 0,6,7,3,2,4,1,5
