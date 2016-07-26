@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html ng-app="demo">
+	<header>
+		<title>test for song</title>
+		  <script src="angular.js"></script>
+			<script src="angular-sanitize.js"></script>
+			<script src="select.js"></script>
+			<script src="jquery.js"></script>
+	</header>
+	<body id = 'body'  ng-controller="DemoCtrl">
+	<h3>Simple String Tags</h3>
+	<h4>(With Custom Tag Label / Sort Enabled)</h4>
+	<ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 300px;" title="Choose a color">
+    <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+    <ui-select-choices repeat="color in availableColors | filter:$select.search">
+      {{color}}
+    </ui-select-choices>
+  </ui-select>
+		
+	</body>
+	<script>
+	//angular , ui-select 
+	
+	var app = angular.module('demo',['ngSanitize','ui.select']);
+	
+
+	app.controller('DemoCtrl', function($scope, $http, $timeout) {
+		  $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
+		
+			  $scope.multipleDemo = {};
+			  $scope.multipleDemo.colors = ['Blue','Red'];
+			
+			//$scope.multipleDemo.colors = [];
+			alert("app");
+	});
+	var uiScope= {};
+	$(document).ready(function(){
+		uiScope = angular.element(document.getElementById('body')).scope();
+	});
+	</script>
+</html>

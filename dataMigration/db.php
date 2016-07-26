@@ -21,6 +21,7 @@ set_time_limit(0);
            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          //  mysql_query("set charcter set 'utf8'");
          //  mysql_query("set names 'utf8'");
+		 $conn->exec("set names 'utf8'");
            return $conn;
            }
        catch(PDOException $e)
