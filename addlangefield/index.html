@@ -1,0 +1,89 @@
+<!doctype html>
+
+<html>
+  <title></title>
+  <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+  <body>
+    <h1>Attention !! </h1>
+    <h3>this project is to change database structure while adding a new language</h3>
+    <label >new language name : </lable>
+    <input id  = "full_name"/>
+    <br/>
+    <label >language short name :</label>
+    <input id = "short_name"/>
+    <br/>
+    <select>
+      <option value ="volvo">product</option>
+      <option value ="saab">test</option>
+      <option value="opel">dev</option>
+      <option value="audi">null</option>
+    </select>
+    <br/>
+    <button id = "submit" onclick="sendRequest()">Submit</button>
+  </body>
+  <script type = "text/javascript">
+    //create ajax call to do this .
+    function sendRequest(){
+      var isSure = checkAgain();
+      if(isSure){
+        //send ajax call
+        sendAjax();
+      }else {
+        // cancel
+
+      }
+    }
+    function checkAgain(){
+
+      var obj = getLanguageName();
+      if(obj == undefined){
+        alert("lack field");
+        return false;
+      }else {
+        var msg = "your new language is : "+obj.full_name+"\n your new language short name is : "+obj.short_name+"\n are you sure to create this language? \n this can't be recall !! ";
+        var r=confirm(msg)
+        if (r==true)
+          {
+            return true;
+          }
+        else
+          {
+            return false;
+          }
+      }
+
+    }
+    function getLanguageName(){
+      var name = {};
+      name.full_name = document.getElementById('full_name').value ;
+      name.short_name = document.getElementById('short_name').value ;
+      if(name.full_name&&name.short_name){
+        return name;
+      }else {
+        return {};
+      }
+
+    }
+
+    function sendAjax(){
+      $.ajax({
+					type:"post",
+					url: window.location.pathname+"/requestHandle.php",
+					cache: true,
+					data: JSON.stringify(getLanguageName()),
+					dataType: "json",
+					async: false,
+					contentType: "application/json; charset=utf-8",
+					success: function(result) {
+							alert("database change successful , please go to database to insert a new field");
+					},
+					error : function(error) {
+							alert("connection faild");
+					}
+				});
+
+    }
+
+
+  </script>
+</html>
