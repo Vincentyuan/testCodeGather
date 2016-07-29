@@ -384,7 +384,7 @@
             cellClass: sequenceCellClass
         }
     ];
-
+   
     var colsSeqExtra =[{
         displayName: 'Defending Team Id',
         field: 'def_team_id',
@@ -734,7 +734,7 @@
         frDesc: 'nom de la région sur l\'axe orthogonal Y de la zone de début de l\'attaque'
     }];
 
-
+   
     var colsEventCoreExtra =[{
         displayName: 'Id',
         field: 'event_id',
@@ -925,7 +925,7 @@
         frDesc: 'nom du type d\'action'
     } ];
 
-
+	
 
     var colShotExtra =[{
         displayName: 'Start Def Id',
@@ -1033,7 +1033,7 @@
         frDesc: 'durée depuis le début de l\'action'
     } ];
 
-
+   
     var colCrossExtra=[{
         field: 'target_player_id',
         filterData: 15,
@@ -1256,7 +1256,7 @@
         frDesc: 'nombre d\'adversaires dans la surface'
     }];
 
-
+ 
     var colBallDriveExtra = [{
         cellFilter: 'toDistance',
         field: 'dist_gained_m',
@@ -1504,7 +1504,7 @@
         frDesc: 'position interligne entre le milieu et la défense adverse en fin d\'action'
     }];
 
-
+  
     var colPassExtra = [{
         displayName: 'Traget Player Id',
         field: 'target_player_id',
@@ -1749,7 +1749,7 @@
         frDesc: 'angle de la passe entre 0° et 360°'
     }];
 
-
+  
     var colsTackleExtraFromSeqCore = [{
     displayName: 'Id',
     field: 'event_id',
@@ -1944,9 +1944,9 @@
         frDesc: 'nom de l\'équipe'
     }];
 
+    
 
-
-    var colsFoulAll = [{
+    var colsInterceptionAll = [{
         field: 'game_id',
         filterData: 2,
         width: 80,
@@ -2242,6 +2242,19 @@
         engDesc: 'Previous Event ',
         frDesc: 'nom du precedent événement de jeu'
     },{
+        field: 'isPlaying',
+        width: '80',
+        cellClass: sequenceCellClass,
+        displayName: 'Is Playing',
+        frName: 'En lecture vidéo',
+        chName: '正在比赛',
+        chDesc: '正在比赛',
+        engName: 'Is　Playing ',
+        engDesc: 'Is　Playing ',
+        frDesc: 'indique si la séquence de jeu est en lecture vidéo'
+    }];
+
+    var colsFoulExtra = [{
         displayName: 'Foul Cost Id',
         field: 'foul_cost_type_id',
         filterData: 'undefined',
@@ -2273,21 +2286,7 @@
         engName: 'Foul Cost  ',
         engDesc: 'Foul Cost ',
         frDesc: 'résultat de la faute'
-    }, {
-        field: 'isPlaying',
-        width: '80',
-        cellClass: sequenceCellClass,
-        displayName: 'Is Playing',
-        frName: 'En lecture vidéo',
-        chName: '正在比赛',
-        chDesc: '正在比赛',
-        engName: 'Is　Playing ',
-        engDesc: 'Is　Playing ',
-        frDesc: 'indique si la séquence de jeu est en lecture vidéo'
     }];
-
-
-
     var colsEventCoreStats = [{
         displayName: '#',
         field: 'nb',
@@ -2588,7 +2587,6 @@
         engDesc: 'Top Following Event #3',
         frDesc: 'meilleur événement de jeu suivant'
     }];
-
     var colShotExtraStats = [{
         displayName: 'Defender Dist.',
         cellFilter: 'toDistance',
@@ -2674,8 +2672,7 @@
         engDesc: 'Top Defenders #3',
         frDesc: 'troisième défenseur le plus proche en moyenne'
     }];
-
-
+  
     var colCrossExtraStats = [{
         displayName: 'Start Pass Options',
         cellFilter: 'toNumber',
@@ -2875,8 +2872,7 @@
         engDesc: 'End Defender #3',
         frDesc: 'troisième défenseur le plus proche en moyenne en fin d\'action'
     }];
-
-
+  
 
     var colBallDriveExtraStats = [{
         displayName: '#Fwd',
@@ -3161,8 +3157,6 @@
         engDesc: 'Top Bottom MidField #3',
         frDesc: 'troisième joueur du milieu le plus bas'
     }];
-
-
 
     var colPassExtraStats = [{
     displayName: 'Start #Defenders',
@@ -4728,8 +4722,6 @@
       chName: '防守运球',
       chDesc: '防守运球'
   }];
-
-
     var colsTeamBd = [{
       field: 'game_id',
       displayName: 'Game Id',
@@ -6233,3 +6225,115 @@
       chName: '危险的控球',
       chDesc: '危险的控球'
   }];
+
+  var colsFitnessBd = [{
+    field: 'game_id',
+    displayName: 'Game Id',
+    category:'Game',
+    frName: 'Identifiant Match',
+    engName: 'Game Id',
+    frDesc: 'identifiant du match',
+    engDesc: 'game identity',
+    width: 100,
+    filter: {
+        condition: customFilterCondition
+    },
+    chName: '比赛序号',
+    chDesc: '比赛序号'
+},{
+    field: 'halftime',
+    displayName: 'Halftime',
+    category:'Game',
+    frName: 'Mi Temps',
+    engName: 'Halftime',
+    frDesc: 'match décomposé en plusieurs parties : 6: match complet / 1:1ère mi temps / 2: 2ème mi temps',
+    engDesc: 'game is making up through different parts : 6 whole game / 1: 1st half / 2: 2nd half',
+    width: 100,
+    filter: {
+        condition: customFilterCondition
+    },
+    chName: '半场时间',
+    chDesc: '半场时间'
+},{
+    field: 'team_id',
+    displayName: 'Team Id',
+    category:'Game',
+    frName: 'Identifiant Équipe',
+    engName: 'Team Id',
+    frDesc: 'identifiant de l\'équipe',
+    engDesc: 'identity of the team',
+    width: 100,
+    filter: {
+        condition: customFilterCondition
+    },
+    chName: '球队序号',
+    chDesc: '球队序号'
+},{
+    field: 'player_id',
+    displayName: 'Player Id',
+    category:'Game',
+    frName: 'identifiant joueur',
+    engName: 'Player Id',
+    frDesc: 'identifiant du joueur',
+    engDesc: 'player identity',
+    filterCellFiltered: true,
+    sortCellFiltered: true,
+    width: 100,
+    filter: {
+        condition: customFilterCondition
+    },
+    chName: '球员序号',
+    chDesc: '球员序号'
+},{
+    field: 'team_id',
+    displayName: 'Team',
+    category:'Game',
+    frName: 'Équipe',
+    engName: 'Team',
+    frDesc: 'nom de l\'équipe',
+    engDesc: 'team name',
+    cellFilter: 'teamIdToName',
+    filterCellFiltered: true,
+    sortCellFiltered: true,
+    width: 100,
+    filter: {
+        condition: customFilterCondition
+    },
+    chName: '球队',
+    chDesc: '球队'
+},{
+    field: 'player_id',
+    displayName: 'Player',
+    category:'Game',
+    frName: 'joueur',
+    engName: 'Player',
+    frDesc: 'nom du joueur',
+    engDesc: 'player name',
+    cellFilter: 'playerIdToName',
+    filterCellFiltered: true,
+    sortCellFiltered: true,
+    width: 100,
+    filter: {
+        condition: customFilterCondition
+    },
+    chName: '球员',
+    chDesc: '球员'
+},{
+    field: 'game_id',
+    displayName: 'Game Title',
+    category:'Game',
+    frName: 'Titre Match',
+    engName: 'Game Title',
+    frDesc: 'titre du match',
+    engDesc: 'game title',
+    cellFilter: 'gameIdToName',
+    filterCellFiltered: true,
+    sortCellFiltered: true,
+    width: 100,
+    filter: {
+        condition: customFilterCondition
+    },
+    chName: '比赛标题',
+    chDesc: '比赛标题'
+}];
+

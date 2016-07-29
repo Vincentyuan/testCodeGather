@@ -1,0 +1,27 @@
+[{
+    "displayName": "Foul Cost Id",
+    "field": "foul_cost_type_id",
+    "filterData": "undefined",
+    "width": 100,
+    "filter": {},
+    "frName": "identifiant faute",
+    "chName": "犯规代价序号",
+    "chDesc": "犯规代价序号",
+    "engName": "Foul Cost Id  ",
+    "engDesc": "Foul Cost Id ",
+    "frDesc": "identifiant du résultat de la faute"
+}, {
+    "displayName": "Foul Cost",
+    "field": "foul_cost_type_id",
+    "cellFilter": "foulCostIdToName",
+    "width": 100,
+    "filterCellFiltered": true,
+    "sortCellFiltered": true,
+    "filter": {},
+    "frName": "résultat faute",
+    "chName": "犯规代价",
+    "chDesc": "犯规代价",
+    "engName": "Foul Cost  ",
+    "engDesc": "Foul Cost ",
+    "frDesc": "résultat de la faute"
+}]

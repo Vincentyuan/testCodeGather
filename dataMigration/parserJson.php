@@ -6,7 +6,9 @@ require_once __DIR__ . '/output.php';
 
 function getArrayByName($fileName){
   $file = $fileName.".json";
-  $string = file_get_contents(__DIR__."/json/$file");
+  global $filePath;
+  $path = $filePath.$file;
+  $string = file_get_contents($path);
   $arrays = json_decode($string,true);
   return $arrays;
 }
