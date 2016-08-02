@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html>
+	<head></head>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	<body>
+		<button id = "fireAjaxCall" onclick = "send()">Send Request</button>
+	</body>
+	<script>
+		//send ajax call 
+		
+		function send(){
+			$.ajax({
+				url:'request.php',
+				async :true,
+				success : function (res){
+					alert("the request data is :"+res);
+				},
+				error: function (a,b,c){
+					alert("error or cancel : " +" a: "+a+" b: " + b +" c: "+c);
+				}
+			}		
+			);
+		}
+		
+	</script>
+</html>

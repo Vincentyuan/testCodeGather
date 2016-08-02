@@ -88,14 +88,14 @@ function saveColumnsData($json_obj){
 
   excuteSQL($sql,false);
 
-  $newid = getNewId($cloumnsData['displayName'],$cloumnsData['field'],$cloumnsData['engName']);
+  $newid = getNewId($cloumnsData['displayName'],$cloumnsData['field'],$cloumnsData['engName'],$cloumnsData['cellFilter']);
   // $newid = getLastInsertId();
 
   return $newid;
 }
 
-function getNewId($displayName,$field,$engName){
-  $getIdSql= generateGetidSql($displayName,$field,$engName);
+function getNewId($displayName,$field,$engName,$cellFilter){
+  $getIdSql= generateGetidSql($displayName,$field,$engName,$cellFilter);
   return $getIdSql;
 }
 
@@ -173,8 +173,9 @@ output_bd_type_id) VALUES ("'.$col_id.'","'.$win_id.'","'.$output_bd_type_id.'")
 
 }
 
-function generateGetidSql($displayName,$field,$engName){
-  $sql = 'select col_id from output_cols where displayName="'.$displayName.'"and fieldName ="'.$field.'" and engName ="'.$engName.'"';
+function generateGetidSql($displayName,$field,$engName,$cellFilter){
+  // displayName and fieldname and engname
+  $sql = 'select col_id from output_cols where displayName="'.$displayName.'"and fieldName ="'.$field.'" and engName ="'.$engName.'" and cellFilter = "'.$cellFilter.'"';
 
   $newid = excuteSQL($sql,true);
 
