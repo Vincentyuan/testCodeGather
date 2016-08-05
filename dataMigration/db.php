@@ -77,6 +77,10 @@ function excuteSqlOriginal($sql,$ifReturn){
 
 
 }
+function getLastInsertId(){
+  $connection = getDbConnection();
+  return $connection->lastInsertId();
+}
 //   $query = "select * from teams";
 //
 //   $connection = getDbConnection();

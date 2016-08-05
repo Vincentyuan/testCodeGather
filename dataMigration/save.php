@@ -1,4 +1,15 @@
 <?php
+
+/*
+由于傻逼老板的原因，saveColumnsDef($columnsDef);
+saveStatsColumnsDef($statsColumnsDef);可以用displayname and field name ， cellfilter 作为主键来保存数据，
+
+而最后一个
+saveBdColumnsDef($statsBdColumnsDef); 则不能，因为这里并没有cellfilter，我真是日了狗了。
+
+重写一个专门的save函数给最后一个。
+
+*/
 require_once __DIR__ . '/output.php';
 require_once __DIR__ . '/parserJson.php';
 require_once __DIR__ . '/db.php';
@@ -13,6 +24,7 @@ $outputObj = new phpOutput();
 
 saveColumnsDef($columnsDef);
 saveStatsColumnsDef($statsColumnsDef);
+//different
 saveBdColumnsDef($statsBdColumnsDef);
 
 // saveTest("test");
@@ -33,6 +45,7 @@ function saveStatsColumnsDef($statsColumnsDef){
     $jsonData=getArrayByName($statsColumnsDef[$i]);
 
     $output_cols_ids = save($jsonData);
+
     updateWinOutPutCols($output_cols_ids,$statsColumnsDef[$i],4);
   }
 }
@@ -40,10 +53,16 @@ function saveStatsColumnsDef($statsColumnsDef){
 
 function saveBdColumnsDef($statsBdColumnsDef){
 
+
+
+
   for($i=0;$i<count($statsBdColumnsDef);$i++){
     $jsonData=getArrayByName($statsBdColumnsDef[$i]);
 
-    $output_cols_ids = save($jsonData);
+    $GLOBALS['outputObj']->setObject($jsonData,"jsondata","json data for $statsBdColumnsDef[$i] ");
+    $GLOBALS['outputObj']->output();
+
+    $output_cols_ids = saveBd($jsonData);
     updateWinOutPutCols($output_cols_ids,$statsBdColumnsDef[$i],3);
   }
 }
@@ -67,8 +86,36 @@ function save($files){
     if (!IsNullOrEmptyString($newid)) {
       array_push($ids,$newid);
     }
+  }
+
+  return $ids;
+}
+
+function saveBd($files){
 
 
+  $ids = [];
+  for ($i=0; $i < count($files) ; $i++) {
+
+    //$newid = saveColumnsData($files[$i]);
+    $json_obj = $files[$i];
+
+    $cloumnsData = formatObj($json_obj);
+
+    $GLOBALS['outputObj']->setObject(!isExistBd($cloumnsData),"exist or not ","exist or not");
+    $GLOBALS['outputObj']->output();
+
+     if (!isExistBd($cloumnsData)) {
+        $sql = generateInsertSQL($cloumnsData);
+        excuteSQL($sql,false);
+      }
+    $newid = getNewIdBd($cloumnsData['displayName'],$cloumnsData['field'],$cloumnsData['engName'],$cloumnsData['cellFilter']);
+
+    $GLOBALS['outputObj']->setObject($newid,"newid","new id");
+    $GLOBALS['outputObj']->output();
+    if (!IsNullOrEmptyString($newid)) {
+      array_push($ids,$newid);
+    }
   }
 
   return $ids;
@@ -84,10 +131,6 @@ function saveColumnsData($json_obj){
  if (!isExist($cloumnsData)) {
     $sql = generateInsertSQL($cloumnsData);
 
-    $GLOBALS['outputObj']->setObject($sql,"sql"," every sql statement");
-    $GLOBALS['outputObj']->output();
-
-
     //$output_cols_id=getNewId($files.displayName,$files.field);
 
     // $output = new phpOutput();
@@ -97,29 +140,42 @@ function saveColumnsData($json_obj){
     excuteSQL($sql,false);
   }
    $newid = getNewId($cloumnsData['displayName'],$cloumnsData['field'],$cloumnsData['engName'],$cloumnsData['cellFilter']);
-   // $newid = getLastInsertId();
+  //  $newid = getLastInsertId();
+  //  $GLOBALS['outputObj']->setObject($newid,"newid"," every insert id sql statement");
+  //  $GLOBALS['outputObj']->output();
+   //$newid = getLastInsertId();
 
    return $newid;
 
 
 }
 
+
 function getNewId($displayName,$field,$engName,$cellFilter){
   $getIdSql= generateGetidSql($displayName,$field,$engName,$cellFilter);
   return $getIdSql;
 }
+function getNewIdBd($displayName,$field,$engName,$cellFilter){
 
-function getLastInsertId(){
-
-  $sql = 'SELECT LAST_INSERT_ID();';
+  $sql = 'select col_id from output_cols where displayName="'.$displayName.'"and fieldName ="'.$field.'" and engName ="'.$engName.'"';
 
   $newid = excuteSQL($sql,true);
 
-  //return $newid;
-  // $GLOBALS['outputObj']->setObject(mysql_insert_id(),"output for last insert id","  get the data from database");
-  // $GLOBALS['outputObj']->output();
-  return mysql_insert_id() ;
+//  $getIdSql= generateGetidSql($displayName,$field,$engName,$cellFilter);
+  return $newid;
 }
+//
+// function getLastInsertId(){
+//
+//   $sql = 'SELECT LAST_INSERT_ID();';
+//
+//   $newid = excuteSQL($sql,true);
+//
+//   //return $newid;
+//   // $GLOBALS['outputObj']->setObject(mysql_insert_id(),"output for last insert id","  get the data from database");
+//   // $GLOBALS['outputObj']->output();
+//   return mysql_insert_id() ;
+// }
 
 
 //need id from output_cols, win_data_type , output_bd_type
@@ -254,6 +310,18 @@ function isExist($columnsData){
 
   $checkExistSql = 'select col_id from output_cols where displayName="'.$columnsData["displayName"].
   '"and fieldName ="'.$columnsData["field"].'" and engName ="'.$columnsData["engName"].'" and cellFilter = "'.$columnsData["cellFilter"].'"';
+  $id = excuteSQL($checkExistSql,true);
+  //if exist ?
+  if (!IsNullOrEmptyString($id)) {
+    return true;
+  }else {
+    return false;
+  }
+}
+function isExistBd($columnsData){
+
+  $checkExistSql = 'select col_id from output_cols where displayName="'.$columnsData["displayName"].
+  '"and fieldName ="'.$columnsData["field"].'" and engName ="'.$columnsData["engName"].'"';
   $id = excuteSQL($checkExistSql,true);
   //if exist ?
   if (!IsNullOrEmptyString($id)) {

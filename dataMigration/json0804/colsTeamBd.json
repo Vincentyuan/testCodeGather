@@ -991,7 +991,7 @@
     "frName": "Hors Jeu",
     "engName": "Foul Offside",
     "frDesc": "un joueur se trouve en position de hors jeu si, au moment où le ballon est joué par un coéquipier, il est hors de sa moitié de terrain et que n'importe quelle partie de sa tête, de son corps ou de ses jambes est plus près de la ligne de but adverse que le ballon et l'avant dernier adversaire",
-    "engDesc": "a player is in an offside position if he is in the opposing team's half of the field and is also \"nearer to his opponents\' goal line than both the ball and the second-last opponent. being \"nearer to an opponent\'s goal line\" meant that \"any part of his head, body or feet is nearer to his opponents\' goal line than both the ball and the second-last opponent",
+    "engDesc": "a player is in an offside position if he is in the opposing team's half of the field and is also nearer to his opponents' goal line than both the ball and the second-last opponent. being nearer to an opponent's goal line meant that any part of his head, body or feet is nearer to his opponents' goal line than both the ball and the second-last opponent",
     "width": 100,
     "filter": "customFilterCondition",
     "treeAggregationType": "avg",
