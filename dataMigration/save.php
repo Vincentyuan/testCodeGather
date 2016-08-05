@@ -64,8 +64,11 @@ function save($files){
   for ($i=0; $i < count($files) ; $i++) {
 
     $newid = saveColumnsData($files[$i]);
+    if (!IsNullOrEmptyString($newid)) {
+      array_push($ids,$newid);
+    }
 
-    array_push($ids,$newid);
+
   }
 
   return $ids;
@@ -78,7 +81,7 @@ function saveColumnsData($json_obj){
 
   //first save ,then run function get id to return.
   $cloumnsData = formatObj($json_obj);
-//  if (!isExist($cloumnsData)) {
+ if (!isExist($cloumnsData)) {
     $sql = generateInsertSQL($cloumnsData);
 
     $GLOBALS['outputObj']->setObject($sql,"sql"," every sql statement");
@@ -92,12 +95,12 @@ function saveColumnsData($json_obj){
     // $output->output();
 
     excuteSQL($sql,false);
+  }
+   $newid = getNewId($cloumnsData['displayName'],$cloumnsData['field'],$cloumnsData['engName'],$cloumnsData['cellFilter']);
+   // $newid = getLastInsertId();
 
-    $newid = getNewId($cloumnsData['displayName'],$cloumnsData['field'],$cloumnsData['engName'],$cloumnsData['cellFilter']);
-    // $newid = getLastInsertId();
+   return $newid;
 
-    return $newid;
-//  }
 
 }
 
