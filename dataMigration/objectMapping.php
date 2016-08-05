@@ -30,7 +30,7 @@ function getWinIdByJsonName($jsonName){
     case 'colsEventCoreExtra':
       # code...
       //$wintypes = [3,2,4,1,5];
-	  $wintypes = [4,3,5,2,6];
+	  $wintypes = [4,3,5,2,6,14];
       foreach ($wintypes as $key => $value) {
         # code...
          // $value+=1; // convert to win_data_type_id

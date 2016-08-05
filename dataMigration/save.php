@@ -78,20 +78,27 @@ function saveColumnsData($json_obj){
 
   //first save ,then run function get id to return.
   $cloumnsData = formatObj($json_obj);
-  $sql = generateInsertSQL($cloumnsData);
+//  if (!isExist($cloumnsData)) {
+    $sql = generateInsertSQL($cloumnsData);
 
-  //$output_cols_id=getNewId($files.displayName,$files.field);
+    $GLOBALS['outputObj']->setObject($sql,"sql"," every sql statement");
+    $GLOBALS['outputObj']->output();
 
-  // $output = new phpOutput();
-  // $output->setObject($sql,"sql","sql sentence");
-  // $output->output();
 
-  excuteSQL($sql,false);
+    //$output_cols_id=getNewId($files.displayName,$files.field);
 
-  $newid = getNewId($cloumnsData['displayName'],$cloumnsData['field'],$cloumnsData['engName'],$cloumnsData['cellFilter']);
-  // $newid = getLastInsertId();
+    // $output = new phpOutput();
+    // $output->setObject($sql,"sql","sql sentence");
+    // $output->output();
 
-  return $newid;
+    excuteSQL($sql,false);
+
+    $newid = getNewId($cloumnsData['displayName'],$cloumnsData['field'],$cloumnsData['engName'],$cloumnsData['cellFilter']);
+    // $newid = getLastInsertId();
+
+    return $newid;
+//  }
+
 }
 
 function getNewId($displayName,$field,$engName,$cellFilter){
@@ -148,7 +155,8 @@ function generateInsertSQL($columnsData){
 
   $sql = 'insert into output_cols (displayName,fieldName,
     filterData,cellFilter,filterCellFiltered,sortCellFiltered,
-    width,frName,engName,engDesc,frDesc,chName,chDesc)VALUES ("'.
+    width,frName,engName,engDesc,frDesc,chName,filter,cellClass,filterCondition,
+    visible,treeAggregationType,customTreeAggregationFinalizerFn,chDesc)VALUES ("'.
     $columnsData['displayName'].'","'.
     $columnsData['field'].'","'.
     $columnsData['filterData'].'","'.
@@ -161,6 +169,12 @@ function generateInsertSQL($columnsData){
     $columnsData['engDesc'].'","'.
     $columnsData['frDesc'].'","'.
 	$columnsData['chName'].'","'.
+  $columnsData['filter'].'","'.
+  $columnsData['cellClass'].'","'.
+  $columnsData['filterCondition'].'","'.
+  $columnsData['visible'].'","'.
+  $columnsData['treeAggregationType'].'","'.
+  $columnsData['customTreeAggregationFinalizerFn'].'","'.
 	$columnsData['chDesc'].'")';
 
 
@@ -174,7 +188,7 @@ output_bd_type_id) VALUES ("'.$col_id.'","'.$win_id.'","'.$output_bd_type_id.'")
 }
 
 function generateGetidSql($displayName,$field,$engName,$cellFilter){
-  // displayName and fieldname and engname
+  // displayName and fieldname and engname,cell filter
   $sql = 'select col_id from output_cols where displayName="'.$displayName.'"and fieldName ="'.$field.'" and engName ="'.$engName.'" and cellFilter = "'.$cellFilter.'"';
 
   $newid = excuteSQL($sql,true);
@@ -198,7 +212,14 @@ function excuteSQL($sql,$ifReturn){//if has return value ,ture
       return "";
     }else {
 
-      return $output[0]['col_id'];
+      // $GLOBALS['outputObj']->setObject($output,"output for newids","  get the data from database");
+      // $GLOBALS['outputObj']->output();
+      if (count($output) > 0) {
+        return $output[0]['col_id'];
+      }else {
+        return "";
+      }
+
     }
 
   }else{ //used insert
@@ -212,7 +233,9 @@ function formatObj($obj){
   // $columnsData->filterData,$columnsData->cellFilter,$columnsData->filterCellFiltered,$columnsData->sortCellFiltered,
   // $columnsData->width,$columnsData->frName,$columnsData->engName,$columnsData->engDesc,
   // $columnsData->frDesc)
-  $keys = ['displayName',"field","filterData","cellFilter","filterCellFiltered","sortCellFiltered","width","frName","engName","engDesc","frDesc"];
+  $keys = ['displayName',"field","filterData","cellFilter","filterCellFiltered",
+  "sortCellFiltered","width","frName","engName","engDesc","frDesc","filter",
+  "cellClass","filterCondition","visible","customTreeAggregationFinalizerFn","treeAggregationType"];
 
   for ($i=0; $i < count($keys); $i++) {
     if (!isset($obj[$keys[$i]])) {
@@ -222,6 +245,23 @@ function formatObj($obj){
 
   return $obj;
 
+}
+
+function isExist($columnsData){
+
+  $checkExistSql = 'select col_id from output_cols where displayName="'.$columnsData["displayName"].
+  '"and fieldName ="'.$columnsData["field"].'" and engName ="'.$columnsData["engName"].'" and cellFilter = "'.$columnsData["cellFilter"].'"';
+  $id = excuteSQL($checkExistSql,true);
+  //if exist ?
+  if (!IsNullOrEmptyString($id)) {
+    return true;
+  }else {
+    return false;
+  }
+}
+
+function IsNullOrEmptyString($question){
+    return (!isset($question) || trim($question)==='');
 }
 
 

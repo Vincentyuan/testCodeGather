@@ -4,6 +4,6 @@ $columnsDef =["colsSeqCore","colsSeqExtra","colsEventCoreExtra","colShotExtra",
 $statsColumnsDef =["colBallDriveExtraStats","colCrossExtraStats","colPassExtraStats","colsEventCoreStats","colShotExtraStats"] ;
 $statsBdColumnsDef = ["colsPlayerBd","colsTeamBd","colsFitnessBd"];
 
- $filePath = __DIR__."/json0728/";
+ $filePath = __DIR__."/json0804/";
 
 ?>
