@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="<?php echo $RootFolderName; ?>rsc/images/logo_webpage.png">
+
+    <title id="pageTitle">FootoVision </title>
+
+    <script src="<?php echo $RootFolderName; ?>assets/js/jquery.min.js" type="text/javascript"></script>
+    <link href="<?php echo $RootFolderName; ?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $RootFolderName; ?>assets/css/video-control.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo $RootFolderName; ?>assets/css/ui-grid.css" type="text/css">
+    <link href="<?php echo $RootFolderName; ?>assets/css/footovision.css" rel="stylesheet">
+    <link  rel="stylesheet" href="<?php echo $RootFolderName; ?>assets/css/font-awesome/css/font-awesome.min.css" type="text/css">
+    <!--<link href="<?php echo $RootFolderName; ?>assets/css/jquery-ui.min.css" rel="stylesheet">-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="<?php echo $RootFolderName; ?>assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="<?php echo $RootFolderName; ?>assets/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3//angular-sanitize.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>-->
+    <script src="<?php echo $RootFolderName; ?>assets/js/angular/angular-local-storage.js"></script>
+    <script src="<?php echo $RootFolderName; ?>assets/js/uigrid/csv.js"></script>
+    <script src="<?php echo $RootFolderName; ?>assets/js/uigrid/pdfmake.js"></script>
+    <script src="<?php echo $RootFolderName; ?>assets/js/uigrid/vfs_fonts.js"></script>
+    <script src="<?php echo $RootFolderName; ?>assets/js/uigrid/ui-grid.js"></script>
+    <!--<script src="<?php echo $RootFolderName; ?>assets/js/video-db.js"></script>-->
+
+
+</head>
+
+<body style="background-color: #0A0D0F" ng-app="app" onUnload="closeNews();">
+
+<div class="container-fluid" ng-controller="ngController">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 style="color: white">
+                <button id='resfreshBtn' onclick="onRefresh()" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
+                <button id='toggleFiltering' ng-click="toggleFiltering($event)" class="btn btn-default"><span class="glyphicon glyphicon-filter"></span> Filters</button>
+                <button id='resetStateBtn' ng-click="resetState()" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Reset View</button>
+                <button id='convert'></span> convert</button>
+                 # {{  gridApi.grid.getVisibleRows().length }} <span id="tableHeader"></span> #
+                <!--data.length-->
+
+            </h4>
+        </div>
+
+
+
+    </div>
+
+    <div class="row">
+        <div id="gridContainer" >
+            <div id="girdTable" ui-grid="gridOptions" ui-grid-cellNav ui-grid-edit ui-grid-resize-columns ui-grid-pinning ui-grid-save-state
+                 ui-grid-selection ui-grid-move-columns ui-grid-importer ui-grid-exporter ui-grid-grouping ui-grid-expandable
+                 class="gridTable popup-grid-table"></div>
+        </div>
+    </div>
+
+</div>
+
+<script src="<?php echo $RootFolderName; ?>assets/js/private/match-vision.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo $RootFolderName; ?>assets/js/private/footo-filter-data.js"></script>
+<!-- <script type="text/javascript" src="<?php echo $RootFolderName; ?>assets/js/private/footo-analysis-db.js"></script> -->
+
+<script type="text/javascript" src="<?php echo $RootFolderName; ?>assets/js/private/grid-cols-def.js"></script>
+<script type="text/javascript" src="<?php echo $RootFolderName; ?>assets/js/private/grid-cols-def-data.js"></script>
+<script type="text/javascript" src="<?php echo $RootFolderName; ?>assets/js/private/uigrid-utils.js"></script>
+<script type="text/javascript" src="<?php echo $RootFolderName; ?>assets/js/private/angular-popup-grid.js"></script>
+
+<script type="text/javascript" src="<?php echo $RootFolderName; ?>assets/js/private/old.js"></script>
+<script type="text/javascript" src="<?php echo $RootFolderName; ?>assets/js/private/new.js"></script>
+
+<script>
+    var tableScope = null;
+    var params = getQueryParams(location.search);
+    var dataTitle = params.title;
+    var statType = strToNumber(params.stattype, -1);
+    var dataType = strToNumber(params.datatype, -1);
+    var inputType = strToNumber(params.inputType, -1);
+    var subWindow = [];
+    var subWindowRow = [];
+    var subWindowColumName= {};
+    initializeSeqGridApp(true);
+
+    $(document).ready(function () {
+        updateTitle(dataTitle);
+        tableScope = angular.element(document.getElementById('girdTable')).scope();
+        if(statType >= 0)
+            tableScope.defineColumns(inputType, getStatsColumnsDef);
+        else
+            tableScope.defineColumns(dataType, getStatsBdColumnsDef);
+        update(window.opener.loadedData);
+    });
+
+    function onRefresh(){
+        update(window.opener.loadedData);
+    }
+
+    function updateTitle(text){
+        document.getElementById('pageTitle').innerHTML = dataTitle;
+        document.getElementById('tableHeader').innerHTML = dataTitle;
+    }
+    function update(data){
+      var statsArray;
+      if(statType >= 0) {
+        // var playersStats = data.filteredEventsData[eLiveSubWinType.playersStats][inputType][statType];
+        tableScope.refreshData(data.filteredEventsData[eLiveSubWinType.playersStats][inputType][statType]);
+
+        // for(var id in playersStats){
+        //   playersStats[id].playerId = id;
+        //   statsArray.push(playersStats[id]);
+        // }
+        // statsArray = playersStats;
+
+      }
+      else {
+          tableScope.refreshData(data.gamesStatsBd[dataType]);
+      }
+      // tableScope.refreshData(statsArray);
+
+    }
+
+    function addSubWindowBeforeCloseEvent(array, event, type) {
+        window.onbeforeunload = function () {
+          window.opener.onSubWindowClosing(array, window, type, event);
+        };
+    }
+
+    notifyDataChanged = function () {
+        update(window.opener.loadedData);
+
+       tableScope.notifyDataChanged(true);
+          // tableScope.$apply();
+    };
+
+    function closeNews(){
+    //close all the sub window
+        if(subWindow.length > 0){
+            for(var i = 0;i <= subWindow.length;i++){
+                var win_one = subWindow[i];
+                if(win_one != undefined){
+                    win_one.close();
+                }
+            }
+        }
+    }
+
+    // table.on('dbl-click-row.bs.table', function (e, row, $element) {
+    //
+    //
+    //     var team = table == homeTeamTable ? homeTeam : awayTeam;
+    //     var playerNum = row.ShirtNumber;
+    //     var playerName = row.Name;
+    //     var isLocalInt = 0 + isLocalOutput;
+    //     var url = "playerfocus.html?num="+playerNum +"&name="+playerName+"&team="+team + "&local=" + isLocalInt;
+    //
+    //     openPlayerFocusSubWindow(url, team + playerNum);
+    //
+    // });
+
+    $(document.getElementById("convert")).click(function(){
+
+      localStorage.setItem("colsSeqCore",JSON.stringify(convertObj(colsSeqCore)));
+      localStorage.setItem("colsSeqExtra",JSON.stringify(convertObj(colsSeqExtra)));
+      localStorage.setItem("colsEventCoreExtra",JSON.stringify(convertObj(colsEventCoreExtra)));
+      localStorage.setItem("colShotExtra",JSON.stringify(convertObj(colShotExtra)));
+      localStorage.setItem("colCrossExtra",JSON.stringify(convertObj(colCrossExtra)));
+      localStorage.setItem("colBallDriveExtra",JSON.stringify(convertObj(colBallDriveExtra)));
+      localStorage.setItem("colPassExtra",JSON.stringify(convertObj(colPassExtra)));
+      localStorage.setItem("colsTackleExtraFromSeqCore",JSON.stringify(convertObj(colsTackleExtraFromSeqCore)));
+      localStorage.setItem("colsHeaderExtraFromSeqCore",JSON.stringify(convertObj(colsHeaderExtraFromSeqCore)));
+      localStorage.setItem("colsInterceptionAll",JSON.stringify(convertObj(colsInterceptionAll)));
+	  localStorage.setItem("colsFoulExtra",JSON.stringify(convertObj(colsFoulExtra)));
+	  localStorage.setItem("colsAllEvents",JSON.stringify(convertObj(colsAllEvents)));
+
+      localStorage.setItem("colsEventCoreStats",JSON.stringify(convertObj(colsEventCoreStats)));
+      localStorage.setItem("colShotExtraStats",JSON.stringify(convertObj(colShotExtraStats)));
+      localStorage.setItem("colCrossExtraStats",JSON.stringify(convertObj(colCrossExtraStats)));
+      localStorage.setItem("colBallDriveExtraStats",JSON.stringify(convertObj(colBallDriveExtraStats)));
+      localStorage.setItem("colPassExtraStats",JSON.stringify(convertObj(colPassExtraStats)));
+      localStorage.setItem("colsPlayerBd",JSON.stringify(convertObj(colsPlayerBd)));
+      localStorage.setItem("colsTeamBd",JSON.stringify(convertObj(colsTeamBd)));
+	  localStorage.setItem("colsFitnessBd",JSON.stringify(convertObj(colsFitnessBd)));
+	  });
+
+	  function convertObj(arrayObj){
+		//to be changed .
+
+		// loop every object in the array
+		//1. if no filterData , give value -1
+		//2. if filter  {} convert the function to function .
+		//3. cellClass , convert to function to string
+		//4.  if not exist put -1, WHEN resume put undefined
+		//5. filterCondition , convert function to string
+		//6. vision convert boolean to int
+		//7. customTreeAggregationFinalizerFn to string
+		//8. treeAggregationType.
+
+      for (var arrayKey in arrayObj) {
+        var obj = arrayObj[arrayKey];
+        for (var key in obj) {
+          obj[key] = getFormatValue(obj[key]);
+        }
+      }
+
+      return arrayObj;
+	  }
+
+    function getFormatValue(variable){
+      if (typeof variable == 'function') {
+          return variable.name;
+      }else if (typeof variable == 'object') {
+          return variable.condition.name;
+      } else{
+          return variable;
+      }
+    }
+</script>
+
+</body>
+</html>

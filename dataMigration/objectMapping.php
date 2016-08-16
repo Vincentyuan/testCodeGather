@@ -15,7 +15,7 @@ function getWinIdByJsonName($jsonName){
     case 'colsSeqCore':
       # code...
       //$wintypes=[0,6,7,3,2,4,1,5]; // the win_id
-	  $wintypes=[1,7,8,4,3,5,2,6,14];
+	  $wintypes=[1,7,8,4,3,5,2,6];
       foreach ($wintypes as $key => $value) {
         # code...
        
@@ -30,7 +30,7 @@ function getWinIdByJsonName($jsonName){
     case 'colsEventCoreExtra':
       # code...
       //$wintypes = [3,2,4,1,5];
-	  $wintypes = [4,3,5,2,6,14];
+	  $wintypes = [4,3,5,2,6];
       foreach ($wintypes as $key => $value) {
         # code...
          // $value+=1; // convert to win_data_type_id
@@ -74,6 +74,10 @@ function getWinIdByJsonName($jsonName){
     case 'colsFoulExtra':
       # code...
       array_push($win_data_type_ids,9);
+      break;
+	 case 'colsFoulExtra':
+      # code...
+      array_push($win_data_type_ids,14);
       break;
 //statsColumnsDef
     case 'colsEventCoreStats':

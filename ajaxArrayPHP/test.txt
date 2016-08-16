@@ -1,0 +1,7 @@
+this is the information of $_GET( the test is for  get data )  
+this is one array 
+	{"arrObj":{"data":" :	this is one array 
+		5,4 :		      ======>the type of the value is :string
+	the array is end 
+the array is end 
+this is end of object $_GET 

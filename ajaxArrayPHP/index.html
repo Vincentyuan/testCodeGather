@@ -2,22 +2,25 @@
 
 <html>
 	<head></head>
-	<script src="../lib/jquery.js"></script>
+	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
 	<body>
 		<button id = "fireAjaxCall" onclick = "send()">Send Request</button>
 	</body>
 	<script>
 		//send ajax call 
+		var arrObj = {};
+		arrObj.data=JSON.stringify([5,4]);
 		
 		function send(){
 			$.ajax({
 				url:'request.php',
+				data:JSON.stringify({arrObj}),
 				async :true,
 				success : function (res){
 					alert("the request data is :"+res);
 				},
 				error: function (a,b,c){
-					alert("error or cancel : " +" a.status: "+a.status+" b: " + b +" c: "+c);
+					alert("error or cancel : " +" a: "+a+" b: " + b +" c: "+c);
 				}
 			}		
 			);
