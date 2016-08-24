@@ -18,7 +18,7 @@ function getWinIdByJsonName($jsonName){
 	  $wintypes=[1,7,8,4,3,5,2,6];
       foreach ($wintypes as $key => $value) {
         # code...
-       
+
         array_push($win_data_type_ids,$value);
       }
 
@@ -75,10 +75,11 @@ function getWinIdByJsonName($jsonName){
       # code...
       array_push($win_data_type_ids,9);
       break;
-	 case 'colsFoulExtra':
-      # code...
-      array_push($win_data_type_ids,14);
-      break;
+
+    case 'colsAllEvents':
+       # code...
+       array_push($win_data_type_ids,14);
+       break;
 //statsColumnsDef
     case 'colsEventCoreStats':
       # code...
@@ -126,9 +127,9 @@ function getWinIdByJsonName($jsonName){
     //??
 		array_push($win_data_type_ids,32);
       break;
-	
+
 	case 'colsFitnessBd':
- 
+
 		array_push($win_data_type_ids,33);
       break;
 
