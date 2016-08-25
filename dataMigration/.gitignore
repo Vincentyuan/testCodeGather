@@ -52,6 +52,7 @@ packages/
 *.shfbproj_*
 *.csv
 *.mp4
+testFolder/*
 
 
 ### generated API documentation folder
