@@ -1,0 +1,394 @@
+@charset "utf-8";
+
+/* HTML & BODY */
+
+html {
+    margin:0;
+    padding:0;
+}
+
+body {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+   /* max-width: 100%; */
+    padding: 0;
+    margin: 0;
+}
+
+/* TYPO */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300); /*p*/
+@import url(https://fonts.googleapis.com/css?family=ABeeZee); /*h2*/
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro); /*h3*/
+@import url(https://fonts.googleapis.com/css?family=Arimo); /*h4*/
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab); /*menu*/
+
+h2 {
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 4em;
+    color: #045f63;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 3em;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'Arimo', sans-serif;
+    font-size: 2em;
+}
+
+p, label {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+}
+
+@media all and (min-width: 1000px)
+{
+
+/* ICONES */
+
+.icones img {
+    max-width: 8%;
+    margin-top: 5%;
+    margin-bottom: 0;
+}
+
+.icones {
+    text-align: center;
+}
+    
+/* HEADER */
+
+/* MENU MENU MENU MENU MENU MENU MENU */
+
+#menu {
+    background-color: #045f63;
+    max-height: 20%;
+    list-style: none;
+    text-align: center;
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+
+#menu li {
+    list-style: none;
+    color: white;
+    display: inline;
+    margin: 5%;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.3em;
+}
+
+#menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    text-decoration: underline;
+}
+
+#menu li a:visited {
+    text-decoration: underline;   
+}
+
+/* LOGO LOGO LOGO LOGO LOGO LOGO LOGO */
+
+#carousel img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    width: 30%;
+}
+
+/* MAIN */
+
+/* SOCIAL NETWORKS SOCIAL NETWORKS SOCIAL NETWORKS */
+    
+#media {
+    position: fixed;
+    top: 39.1%;
+    right: 0;
+    max-width: 80px;
+    max-height: 80px;
+    margin: 0;
+    padding: 0;
+}
+
+/* LANGUAGE LANGUAGE LANGUAGE LANGUAGE */
+    
+#translation {
+    position: fixed;
+    top:50%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+    
+#translation img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+/* PRESENTATION PRESENTATION PRESENTATION PRESENTATION PRESENTATION */
+
+/* ABOUT US */
+    
+#presentation {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#aboutUs img {
+    float: left;
+    margin-right: 10%;
+    width: 40%;
+    padding: 0;
+}
+
+#aboutUs p {
+    text-align: justify;
+}
+
+/* VIDEO */
+    
+#video {
+    display: inline-block;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#video video {
+    float: left;
+    max-width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+/* OUR SOFTWARE OUR SOFTWARE */
+
+/* SOFTWARE */
+    
+#software {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#software img {
+    max-width: 40%;
+    float: left;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+  
+/* FOOTOANALYSIS */
+    
+#footoanalysis {
+    margin-left: 0%;
+    margin-right: 0%;
+}
+    
+#footoanalysis p {
+    text-align: justify;
+    margin-left: 15%;
+}
+    
+#footoanalysis h4 {
+    text-align: center;
+    margin-left: 15%;
+}
+
+#footoanalysis a {
+    color: black;
+}
+
+/* FOOTOTRACK */
+    
+#foototrack {
+    text-align: center;
+}
+ 
+/* CONTACT CONTACT CONTACT */
+
+/* MAP */
+    
+#z {
+    margin-left: 15%; 
+    margin-right: 15%; 
+    }
+
+/* ADRESSES */
+#ourAdresses {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+    
+#ourAdresses p {
+    text-align: left;
+}
+
+/* FORMULAIRE */
+/*
+#formulaire {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#formulaire label {
+    display: block;
+    width: 100px; HERE
+    float: left;
+    margin-right: 5%;
+    text-align: right;
+}
+
+#formulaire input {
+    width: 40%;
+    height: 30px;
+
+}
+
+#formulaire textarea {
+    width: 40%;
+    height: 60px;
+}*/
+    
+#box label {
+    text-align: right;
+    margin-right: 5%;  
+}
+
+#box textarea {
+    width: 40%;
+    height: 60px;
+}
+
+#box input {
+    width: 40%;
+    height: 30px;
+}
+
+#box input textarea {
+    text-align: left;
+}
+    
+#send {
+    width: 30%;
+    height: 20px;
+    background-color: #045f63;
+    color: white;
+    margin-bottom: 3%;
+    border: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+}
+
+#send:hover {
+    background-color: black; 
+    color: #045f63;
+    cursor:  pointer;
+}
+
+/* FOOTER FOOTER FOOTER FOOTER */
+
+/* NEWSLETTER */
+
+#newsletter {
+    background-color: #045f63;
+    width: 100%;
+    height: 50px;
+    color: white;
+}
+
+#nl {
+    margin-left: 15%; 
+    margin-right: 15%;
+}
+
+#mail {
+    width: 20%;
+}
+
+#ok {
+    background-color: white;
+    color: #045f63;
+    border: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+    border-radius: 2px;
+}
+
+#ok:hover {
+    cursor:  pointer;
+}
+
+/* FOOTER */
+    
+#footer {
+    background-color: black;
+    width: 100%;
+    height: 30%;
+}
+
+#in {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+ 
+.column-footer {
+    display: inline-block;
+    width: 33%;
+    vertical-align: middle;
+    text-align: justify;
+}
+
+/* LOGO */
+    
+#in img {
+    width: 70%;
+}
+
+/* MENU FOOTER */
+    
+#nav_footer li {
+    text-align: center;
+    font-size: 2em;
+}
+
+#nav_footer li a {
+    color: white;
+    list-style: none;
+    text-decoration: none;
+}
+  
+#nav_footer li a:hover {
+    color: #045f63;
+}
+
+/* ADRESSE */
+    
+#adresse_footer {
+    color: white;
+    margin-right: 15%;
+    float: right;
+}
+
+/* COPYRIGHT */
+    
+#rights {
+    color: white;
+    text-align: center;
+    clear: right;
+}
+}
