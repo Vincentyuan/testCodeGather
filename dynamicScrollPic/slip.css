@@ -7,3 +7,4 @@
 #banner ul li { padding:0px 8px;float:left;display:block;color:#FFF;border:#fff 1px solid;background-color:#6f4f67;cursor:pointer}
 #banner ul li.on{ background-color:#900}
 #banner_list a{position:absolute;} <!-- 让四张图片都可以重叠在一起-->
+#banner {clear:both; display: block; margin-left : auto; margin-right:auto; z-index: 10;}

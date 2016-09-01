@@ -1,15 +1,29 @@
 <!doctype html>
 <html>
-	<head></head>
 
-	<script type="text/javascript" src="../lib/jquery.js"></script>
+<head></head>
 
-	<body>
-		<h2> here is the data </h2>
-		<div id ="scrollPicture"> </div>
-	</body>
-	<script>
-		$("#scrollPicture").load("slipPart.html");
+<script type="text/javascript" src="../lib/jquery.js"></script>
+<style>
+	#scroll {
+		z-index: 100;
+		margin-top: 3.2%;
+		clear: both;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		z-index: 10;
+	}
+</style>
 
-	</script>
+<body>
+	<h2> here is the data </h2>
+	<div id="scroll">
+		<div id="scrollPicture"> </div>
+	</div>
+</body>
+<script>
+	$("#scrollPicture").load("slipPart.html");
+</script>
+
 </html>
