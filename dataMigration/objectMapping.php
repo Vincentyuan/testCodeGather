@@ -2,7 +2,7 @@
 
 function getWinIdByJsonName($jsonName){
 
-
+//according to the  table output_bd_type the key 
 // 0 sequences 1 passes  2 ballDrives  3 shots  4 crosses  5 throwIn  6 tackles
 // 7 headers  8 fouls  9 blocks  10 corners  11 penalties  12 freeKicks
 // 13 events  14 pitch3d  15 pitch2d  16 analytics2d  17 playersstats
