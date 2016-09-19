@@ -11,6 +11,11 @@
 	<script>
 		$(document).ready(function(){
 			document.getElementById("change").innerText = "fuck sb";
+			alert("asdfasdfas".replaceAt(3,"z"));
 		});
+		
+		String.prototype.replaceAt=function(index, character) {
+			return this.substr(0, index) + character + this.substr(index+character.length);
+		}
 	</script>
 </html>
